@@ -92,14 +92,41 @@ if (form) {
 
     const btn = form.querySelector('[type="submit"]');
     const success = document.getElementById('formSuccess');
-    btn.textContent = 'Sending…'; btn.disabled = true;
-    setTimeout(() => {
-      btn.textContent = '✓ Message Sent!';
-      btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
-      if (success) { success.style.display = 'block'; success.textContent = '✓ Thank you! We\'ll reach you within 2 hours.'; }
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const formData = {
+      name: document.getElementById('name').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      service: document.getElementById('service')?.value || '',
+      message: document.getElementById('message').value.trim()
+    };
+
+    fetch('https://script.google.com/macros/s/AKfycbzleA-I7espWKt-ktvQy6rn8PpclmZY44pTloXHGyKX1Y25xNkQOLz4ZsE0IZs-mEG3/exec', {   // ← yahan apna Google Apps Script URL daalo
+      method: 'POST',
+      body: JSON.stringify(formData)
+    })
+    .then(() => {
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+      if (success) {
+        success.style.display = 'block';
+        success.textContent = '✓ Thank you! We\'ll get back to you within 24 hours.';
+      }
       form.reset();
-      setTimeout(() => { btn.textContent = 'Send Message →'; btn.disabled = false; btn.style.background = ''; if(success) success.style.display='none'; }, 5000);
-    }, 1200);
+      setTimeout(() => {
+        btn.textContent = 'Send Message →';
+        btn.disabled = false;
+        btn.style.background = '';
+        if (success) success.style.display = 'none';
+      }, 5000);
+    })
+    .catch(() => {
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again.');
+    });
   });
 
   form.querySelectorAll('input, textarea').forEach(inp => {
