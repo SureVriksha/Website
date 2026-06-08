@@ -47,12 +47,16 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Our Services</h4>
             <ul>
-              <li><Link to="/services#health">Health & Term Insurance</Link></li>
-              <li><Link to="/services#gst">GST Registration & Filing</Link></li>
-              <li><Link to="/services#itr">ITR Filing & Tax Audit</Link></li>
-              <li><Link to="/services#gem">GEM & OEM Registration</Link></li>
+              <li><Link to="/services#health">Health & Life Insurance</Link></li>
+              <li><Link to="/services#group-insurance">Group & Corporate Insurance</Link></li>
+              <li><Link to="/services#loan-advisory">Loans & Govt Subsidies</Link></li>
+              <li><Link to="/services#gst">GST, ITR & Tax Services</Link></li>
+              <li><Link to="/services#pf-esic">PF/EPF & ESIC Registration</Link></li>
+              <li><Link to="/services#dsc-trademark">Trademark & DSC</Link></li>
+              <li><Link to="/services#startup-iec">Startup & Investor Connect</Link></li>
+              <li><Link to="/services#govt-subsidies">Govt Subsidies & Project Finance</Link></li>
               <li><Link to="/services#certificates">Govt Certificates (CSC)</Link></li>
-              <li><Link to="/services#student-desk">Student Scholarship Desk</Link></li>
+              <li><Link to="/services#eshram-welfare">E-Shram & Welfare Schemes</Link></li>
             </ul>
           </div>
           <div className="footer-col">
