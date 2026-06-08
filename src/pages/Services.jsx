@@ -10,13 +10,16 @@ export default function Services() {
     const tabParam = searchParams.get('tab');
     const hash = location.hash;
     
-    const taxHashes = ['#gst', '#itr', '#company', '#msme', '#licenses', '#gem', '#oem', '#stock-audit'];
-    const govtHashes = ['#certificates', '#id-corrections', '#rto', '#passport-visa', '#student-desk', '#caste', '#income', '#residence', '#pan-change', '#aadhaar-change', '#voter-change', '#scholarships'];
+    const insuranceHashes = ['#health', '#term', '#motor', '#travel', '#home', '#commercial', '#investment', '#group-insurance', '#loan-advisory'];
+    const taxHashes = ['#gst', '#itr', '#company', '#msme', '#licenses', '#gem', '#oem', '#stock-audit', '#pf-esic', '#payroll-compliance', '#dsc-trademark', '#fssai-iso', '#startup-iec'];
+    const govtHashes = ['#certificates', '#id-corrections', '#rto', '#passport-visa', '#student-desk', '#caste', '#income', '#residence', '#pan-change', '#aadhaar-change', '#voter-change', '#scholarships', '#eshram-welfare', '#utility-services'];
 
     if (tabParam === 'tax' || taxHashes.includes(hash)) {
       setActiveTab('tax-services');
     } else if (tabParam === 'govt' || govtHashes.includes(hash)) {
       setActiveTab('govt-services');
+    } else if (tabParam === 'insurance' || insuranceHashes.includes(hash)) {
+      setActiveTab('insurance-services');
     } else {
       setActiveTab('insurance-services');
     }
@@ -320,6 +323,76 @@ export default function Services() {
               </div>
             </div>
           </section>
+
+          {/* GROUP & CORPORATE INSURANCE */}
+          <section className="service-detail-section bg-alt" id="group-insurance">
+            <div className="container">
+              <div className="sdg">
+                <div className="sd-content">
+                  <div className="sd-eyebrow reveal">Group & Corporate Insurance</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#e0f2f1,#b2dfdb)' }}>🏢</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Protect Your Team<br /><em style={{ color: 'var(--gold-dark)' }}>Build a Better Workplace</em></h2>
+                  <p className="reveal">Your employees are your greatest asset. Group insurance policies provide comprehensive coverage at significantly lower premiums — boosting morale, retention, and compliance at the same time.</p>
+                  <div className="sd-benefits reveal">
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Group Health Insurance (GMC) — cashless coverage for all employees & families</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Group Term Life Insurance (GTLI) — death benefit coverage for all staff</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Group Personal Accident (GPA) — 24×7 accident coverage worldwide</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Workmen Compensation Policy — statutory liability cover for injuries at work</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Key Man Insurance — protect your business against loss of key employees</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Directors & Officers (D&O) Liability — personal asset protection for leadership</span></div>
+                  </div>
+                  <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Every company with 5+ employees, startups, MSMEs, corporates, NGOs, and factories. Group insurance is also required for many government tenders and compliance mandates.</p></div>
+                  <Link to="/contact?service=group-insurance" className="btn btn-gold reveal">Get Group Insurance Quote →</Link>
+                </div>
+                <div className="sd-visual reveal">
+                  <div className="sd-visual-icon">🏢</div>
+                  <div className="sd-visual-title">Group Insurance</div>
+                  <div className="sd-visual-sub">Complete Employee Coverage</div>
+                  <div className="sd-visual-chips">
+                    <div className="sd-chip">Group Mediclaim</div>
+                    <div className="sd-chip">Group Term Life</div>
+                    <div className="sd-chip">GPA Cover</div>
+                    <div className="sd-chip">Key Man Policy</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* LOAN ADVISORY */}
+          <section className="service-detail-section" id="loan-advisory">
+            <div className="container">
+              <div className="sdg">
+                <div className="sd-content">
+                  <div className="sd-eyebrow reveal">Loan Advisory & Processing</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#fff3e0,#ffe0b2)' }}>🏦</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Right Loan, Best Rate<br /><em style={{ color: 'var(--gold-dark)' }}>Zero Hassle Processing</em></h2>
+                  <p className="reveal">Whether you're buying your dream home, funding education, or growing your business — we help you find the right loan from top banks & NBFCs at competitive rates with end-to-end processing support.</p>
+                  <div className="sd-benefits reveal">
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Home Loan — up to ₹5 Crore from SBI, HDFC, ICICI, LIC HFL & more</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Personal Loan — instant approval, minimal documentation</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Business Loan / MSME Loan — collateral-free options available</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Education Loan — study in India or abroad, moratorium period included</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Loan Against Property (LAP) — unlock equity from your assets</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Balance Transfer & Top-up — reduce EMI or get additional funds</span></div>
+                  </div>
+                  <div className="sd-who reveal"><h4>💡 Who Should Apply?</h4><p>Salaried employees, self-employed professionals, business owners, students, and NRIs. We compare 25+ lenders to find your best rate and process your file end-to-end.</p></div>
+                  <Link to="/contact?service=loan" className="btn btn-gold reveal">Apply for Loan →</Link>
+                </div>
+                <div className="sd-visual reveal">
+                  <div className="sd-visual-icon">🏦</div>
+                  <div className="sd-visual-title">Loan Advisory</div>
+                  <div className="sd-visual-sub">Best Rates, Fast Processing</div>
+                  <div className="sd-visual-chips">
+                    <div className="sd-chip">Home Loan</div>
+                    <div className="sd-chip">Personal Loan</div>
+                    <div className="sd-chip">Business Loan</div>
+                    <div className="sd-chip">Education Loan</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       )}
 
@@ -603,6 +676,181 @@ export default function Services() {
               </div>
             </div>
           </section>
+
+          {/* PF/EPF & ESIC REGISTRATION */}
+          <section className="service-detail-section bg-alt" id="pf-esic">
+            <div className="container">
+              <div className="sdg">
+                <div className="sd-content">
+                  <div className="sd-eyebrow reveal">PF/EPF & ESIC Registration</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#e3f2fd,#90caf9)' }}>🛡️</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Employee Benefits<br /><em style={{ color: 'var(--gold-dark)' }}>Registration & Compliance</em></h2>
+                  <p className="reveal">Mandatory under Indian labour law — PF and ESIC registration protects both employer and employee. We handle complete registration, monthly return filing, and compliance management so you stay penalty-free.</p>
+                  <div className="sd-benefits reveal">
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>EPF Registration — for establishments with 20+ employees (mandatory)</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>ESIC Registration — for employees earning ≤ ₹21,000/month</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Monthly ECR (Electronic Challan-cum-Return) filing for PF</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>ESIC half-yearly return filing & contribution management</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Employee UAN generation, KYC linking & transfer claims</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>PF withdrawal, advance & pension claim processing for employees</span></div>
+                  </div>
+                  <div className="sd-who reveal"><h4>💡 Who Needs This?</h4><p>All businesses with 10+ employees must register for ESIC and 20+ for EPF. Also applicable to contractors, factories, shops, and establishments under state labour laws.</p></div>
+                  <Link to="/contact?service=other&message=I%20need%20PF%2FEPF%20%26%20ESIC%20registration%20and%20compliance%20services." className="btn btn-gold reveal">Start PF/ESIC Registration →</Link>
+                </div>
+                <div className="sd-visual reveal">
+                  <div className="sd-visual-icon">🛡️</div>
+                  <div className="sd-visual-title">PF & ESIC</div>
+                  <div className="sd-visual-sub">Employee Social Security</div>
+                  <div className="sd-visual-chips">
+                    <div className="sd-chip">EPF Registration</div>
+                    <div className="sd-chip">ESIC Filing</div>
+                    <div className="sd-chip">UAN Setup</div>
+                    <div className="sd-chip">Monthly Returns</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* PAYROLL & LABOUR COMPLIANCE */}
+          <section className="service-detail-section" id="payroll-compliance">
+            <div className="container">
+              <div className="sdg">
+                <div className="sd-content">
+                  <div className="sd-eyebrow reveal">Payroll & Labour Compliance</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#fce4ec,#f48fb1)' }}>📋</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Stay Compliant<br /><em style={{ color: 'var(--gold-dark)' }}>Avoid Penalties & Notices</em></h2>
+                  <p className="reveal">From Professional Tax registration to labour licence renewals — we handle all statutory compliance so you can focus on growing your business without legal worries.</p>
+                  <div className="sd-benefits reveal">
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Professional Tax (PT) registration & monthly/annual filing</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Labour Welfare Fund registration & compliance</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Shop & Establishment Act licence — registration & renewal</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Gratuity Trust setup and compliance for 5+ year employees</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Contract labour licence & compliance management</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Labour law return filing — annual & half-yearly as applicable</span></div>
+                  </div>
+                  <div className="sd-who reveal"><h4>💡 Who Needs This?</h4><p>All employers in India — shops, offices, factories, contractors, and establishments. Non-compliance attracts heavy penalties under state and central labour laws.</p></div>
+                  <Link to="/contact?service=other&message=I%20need%20payroll%20and%20labour%20compliance%20services." className="btn btn-gold reveal">Get Compliance Support →</Link>
+                </div>
+                <div className="sd-visual reveal">
+                  <div className="sd-visual-icon">📋</div>
+                  <div className="sd-visual-title">Labour Compliance</div>
+                  <div className="sd-visual-sub">Statutory Requirements</div>
+                  <div className="sd-visual-chips">
+                    <div className="sd-chip">Professional Tax</div>
+                    <div className="sd-chip">Labour Licence</div>
+                    <div className="sd-chip">Gratuity</div>
+                    <div className="sd-chip">LWF</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* DSC & TRADEMARK */}
+          <section className="service-detail-section bg-alt" id="dsc-trademark">
+            <div className="container">
+              <div className="sdg">
+                <div className="sd-content">
+                  <div className="sd-eyebrow reveal">DSC, Trademark & IP</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#f3e5f5,#ce93d8)' }}>™️</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Protect Your Brand<br /><em style={{ color: 'var(--gold-dark)' }}>Secure Your Identity</em></h2>
+                  <p className="reveal">Digital Signatures for e-filing, Trademark registration to protect your brand, and Copyright/Patent filing to safeguard your intellectual property — we handle it all.</p>
+                  <div className="sd-benefits reveal">
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Digital Signature Certificate (DSC) — Class 2 & 3, for MCA, GST, e-Tender</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Trademark Registration — brand name, logo, tagline under 45 classes</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Trademark Objection Reply & Hearing representation</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Copyright Registration — for artistic, literary, software works</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Patent Filing — provisional and complete specification</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>DUNS Number registration for international business credibility</span></div>
+                  </div>
+                  <div className="sd-who reveal"><h4>💡 Who Needs This?</h4><p>Every business, startup, freelancer, and creative professional. DSC is mandatory for company directors, GST filing, and e-tendering. Trademark protects your brand from copycats.</p></div>
+                  <Link to="/contact?service=other&message=I%20need%20DSC%2FTrademark%2FIP%20registration%20services." className="btn btn-gold reveal">Protect Your Brand →</Link>
+                </div>
+                <div className="sd-visual reveal">
+                  <div className="sd-visual-icon">™️</div>
+                  <div className="sd-visual-title">Brand Protection</div>
+                  <div className="sd-visual-sub">DSC, Trademark & IP</div>
+                  <div className="sd-visual-chips">
+                    <div className="sd-chip">DSC Certificate</div>
+                    <div className="sd-chip">Trademark</div>
+                    <div className="sd-chip">Copyright</div>
+                    <div className="sd-chip">Patent</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* FSSAI & ISO */}
+          <section className="service-detail-section" id="fssai-iso">
+            <div className="container">
+              <div className="sdg">
+                <div className="sd-content">
+                  <div className="sd-eyebrow reveal">FSSAI, ISO & Certifications</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#e8f5e9,#81c784)' }}>🏅</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Get Certified<br /><em style={{ color: 'var(--gold-dark)' }}>Build Trust & Credibility</em></h2>
+                  <p className="reveal">Certifications open doors to bigger contracts, government tenders, and customer trust. From FSSAI food licence to ISO quality certification — we handle the entire application and audit process.</p>
+                  <div className="sd-benefits reveal">
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>FSSAI Licence — Basic, State & Central level for food businesses</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>ISO 9001 (Quality), ISO 14001 (Environment), ISO 45001 (Safety)</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>ISO 22000 (Food Safety) & HACCP Certification</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>BIS/ISI Certification for manufactured goods</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>GMP (Good Manufacturing Practice) Certification</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>NABL, CE Marking & other industry-specific certifications</span></div>
+                  </div>
+                  <div className="sd-who reveal"><h4>💡 Who Needs This?</h4><p>Food manufacturers, restaurants, caterers (FSSAI mandatory). Manufacturers, exporters, and service companies seeking government tenders or international clients (ISO mandatory).</p></div>
+                  <Link to="/contact?service=other&message=I%20need%20FSSAI%2FISO%20certification%20services." className="btn btn-gold reveal">Get Certified →</Link>
+                </div>
+                <div className="sd-visual reveal">
+                  <div className="sd-visual-icon">🏅</div>
+                  <div className="sd-visual-title">Certifications</div>
+                  <div className="sd-visual-sub">FSSAI, ISO & More</div>
+                  <div className="sd-visual-chips">
+                    <div className="sd-chip">FSSAI</div>
+                    <div className="sd-chip">ISO 9001</div>
+                    <div className="sd-chip">ISO 14001</div>
+                    <div className="sd-chip">BIS/ISI</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* STARTUP INDIA, NGO & IEC */}
+          <section className="service-detail-section bg-alt" id="startup-iec">
+            <div className="container">
+              <div className="sdg">
+                <div className="sd-content">
+                  <div className="sd-eyebrow reveal">Startup India, NGO & Import-Export</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#fff8e1,#ffd54f)' }}>🚀</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Launch, Scale<br /><em style={{ color: 'var(--gold-dark)' }}>& Go Global</em></h2>
+                  <p className="reveal">Whether you're launching a startup, registering an NGO, or expanding into international trade — we provide end-to-end registration, recognition, and compliance services.</p>
+                  <div className="sd-benefits reveal">
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Startup India Recognition (DPIIT) — tax benefits & funding eligibility</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>NGO / Trust / Society / Section 8 Company Registration</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>12A & 80G Registration for NGOs — tax exemption for donors</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Import Export Code (IEC) — mandatory for all international trade</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>RCMC (Registration-cum-Membership Certificate) from export councils</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>AD Code registration with customs for export payment processing</span></div>
+                  </div>
+                  <div className="sd-who reveal"><h4>💡 Who Needs This?</h4><p>Startups seeking DPIIT benefits & funding, social entrepreneurs registering NGOs, and businesses importing/exporting goods or services internationally.</p></div>
+                  <Link to="/contact?service=other&message=I%20need%20Startup%20India%2FNGO%2FIEC%20registration%20services." className="btn btn-gold reveal">Get Started →</Link>
+                </div>
+                <div className="sd-visual reveal">
+                  <div className="sd-visual-icon">🚀</div>
+                  <div className="sd-visual-title">Startup & Trade</div>
+                  <div className="sd-visual-sub">Launch & Go Global</div>
+                  <div className="sd-visual-chips">
+                    <div className="sd-chip">Startup India</div>
+                    <div className="sd-chip">NGO/Trust</div>
+                    <div className="sd-chip">IEC Code</div>
+                    <div className="sd-chip">12A & 80G</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       )}
 
@@ -774,6 +1022,76 @@ export default function Services() {
                     <div className="sd-chip">Exam Forms</div>
                     <div className="sd-chip">Admissions</div>
                     <div className="sd-chip">Format Resize</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* E-SHRAM & GOVT WELFARE SCHEMES */}
+          <section className="service-detail-section bg-alt" id="eshram-welfare">
+            <div className="container">
+              <div className="sdg">
+                <div className="sd-content">
+                  <div className="sd-eyebrow reveal">E-Shram & Govt Welfare Schemes</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#e8eaf6,#9fa8da)' }}>🏛️</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Government Benefits<br /><em style={{ color: 'var(--gold-dark)' }}>Direct to Your Doorstep</em></h2>
+                  <p className="reveal">Millions of government schemes exist but most people don't know how to apply. We help you enroll in every eligible scheme — from E-Shram cards to Ayushman Bharat to pension plans — so you never miss a benefit you deserve.</p>
+                  <div className="sd-benefits reveal">
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>E-Shram Card registration — ₹2 Lakh accidental insurance for workers</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Ayushman Bharat / PMJAY — ₹5 Lakh free health cover for eligible families</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>PM Kisan Samman Nidhi — ₹6,000/year for farmers</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>PM Jeevan Jyoti Bima / Suraksha Bima Yojana — ₹2L/₹4L cover at ₹12-₹436/year</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Atal Pension Yojana (APY) — guaranteed pension of ₹1,000–₹5,000/month</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>PM Awas Yojana, Ujjwala Yojana & other state-specific welfare schemes</span></div>
+                  </div>
+                  <div className="sd-who reveal"><h4>💡 Who Should Apply?</h4><p>Unorganized sector workers, daily wage labourers, farmers, BPL families, senior citizens, and anyone earning below ₹15,000/month. Many schemes have no income limit.</p></div>
+                  <Link to="/contact?service=other&message=I%20want%20to%20apply%20for%20E-Shram%20%2F%20Government%20Welfare%20Schemes." className="btn btn-gold reveal">Apply for Schemes →</Link>
+                </div>
+                <div className="sd-visual reveal">
+                  <div className="sd-visual-icon">🏛️</div>
+                  <div className="sd-visual-title">Welfare Schemes</div>
+                  <div className="sd-visual-sub">Government Benefits</div>
+                  <div className="sd-visual-chips">
+                    <div className="sd-chip">E-Shram</div>
+                    <div className="sd-chip">Ayushman Bharat</div>
+                    <div className="sd-chip">PM Kisan</div>
+                    <div className="sd-chip">Atal Pension</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* RATION CARD & UTILITY SERVICES */}
+          <section className="service-detail-section" id="utility-services">
+            <div className="container">
+              <div className="sdg">
+                <div className="sd-content">
+                  <div className="sd-eyebrow reveal">Ration Card & Utility Services</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#fff3e0,#ffcc80)' }}>📄</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Essential Documents<br /><em style={{ color: 'var(--gold-dark)' }}>Without the Hassle</em></h2>
+                  <p className="reveal">From new ration cards to electricity connections to property documents — we handle all essential utility and document services that every household needs, saving you time and government office visits.</p>
+                  <div className="sd-benefits reveal">
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Ration Card — new application, name addition/deletion, correction</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Electricity / Water connection — new, name transfer, load change</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Property documents — mutation, encumbrance certificate, land records</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Birth & Death Certificate — new registration, correction, duplicate</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Marriage Certificate registration & verification</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Affidavit, Notary & e-Stamp paper services</span></div>
+                  </div>
+                  <div className="sd-who reveal"><h4>💡 Who Needs This?</h4><p>Every household and individual. Whether you're setting up a new home, updating family records, or need any government document — we make it simple and stress-free.</p></div>
+                  <Link to="/contact?service=other&message=I%20need%20help%20with%20Ration%20Card%20%2F%20Utility%20document%20services." className="btn btn-gold reveal">Get Document Help →</Link>
+                </div>
+                <div className="sd-visual reveal">
+                  <div className="sd-visual-icon">📄</div>
+                  <div className="sd-visual-title">Utility Services</div>
+                  <div className="sd-visual-sub">Essential Documents</div>
+                  <div className="sd-visual-chips">
+                    <div className="sd-chip">Ration Card</div>
+                    <div className="sd-chip">Birth/Death Cert</div>
+                    <div className="sd-chip">Marriage Cert</div>
+                    <div className="sd-chip">Property Docs</div>
                   </div>
                 </div>
               </div>
