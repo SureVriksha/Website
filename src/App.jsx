@@ -46,21 +46,27 @@ function ScrollToTopAndAnimations() {
       const revealEls = document.querySelectorAll('.reveal');
       revealEls.forEach((el) => {
         if (el.classList.contains('visible')) return;
-        if (el.getAttribute('data-observed') === 'true') return;
-        el.setAttribute('data-observed', 'true');
 
         const siblings = Array.from(el.parentElement.querySelectorAll('.reveal'));
-        const delay = siblings.indexOf(el) * 40; // Reduced delay from 60ms to 40ms for snappier loads
+        const delay = siblings.indexOf(el) * 35; // Snappy 35ms delay
         el.setAttribute('data-delay', delay.toString());
 
         const rect = el.getBoundingClientRect();
         // Check if element is in the viewport or close above the fold
-        const isInViewport = rect.top < window.innerHeight + 100 && rect.bottom > -100;
+        const isInViewport = rect.top < window.innerHeight + 120 && rect.bottom > -120;
 
         if (isInViewport) {
-          // If already in or near viewport, reveal immediately with delay
-          setTimeout(() => el.classList.add('visible'), delay);
+          if (el.getAttribute('data-animating') === 'true') return;
+          el.setAttribute('data-animating', 'true');
+          setTimeout(() => {
+            if (el) {
+              el.classList.add('visible');
+              el.removeAttribute('data-animating');
+            }
+          }, delay);
         } else {
+          if (el.getAttribute('data-observed') === 'true') return;
+          el.setAttribute('data-observed', 'true');
           revealObs.observe(el);
         }
       });
