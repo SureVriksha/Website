@@ -11,7 +11,7 @@ export default function Services() {
     const hash = location.hash;
     
     const insuranceHashes = ['#health', '#term', '#motor', '#travel', '#home', '#commercial', '#investment', '#group-insurance', '#loan-advisory'];
-    const taxHashes = ['#gst', '#itr', '#company', '#msme', '#licenses', '#gem', '#oem', '#stock-audit', '#pf-esic', '#payroll-compliance', '#dsc-trademark', '#fssai-iso', '#startup-iec'];
+    const taxHashes = ['#gst', '#itr', '#company', '#msme', '#licenses', '#gem', '#oem', '#stock-audit', '#pf-esic', '#payroll-compliance', '#dsc-trademark', '#fssai-iso', '#startup-iec', '#govt-subsidies'];
     const govtHashes = ['#certificates', '#id-corrections', '#rto', '#passport-visa', '#student-desk', '#caste', '#income', '#residence', '#pan-change', '#aadhaar-change', '#voter-change', '#scholarships', '#eshram-welfare', '#utility-services'];
 
     if (tabParam === 'tax' || taxHashes.includes(hash)) {
@@ -359,36 +359,62 @@ export default function Services() {
             </div>
           </section>
 
-          {/* LOAN ADVISORY */}
+          {/* LOAN ADVISORY — COMPREHENSIVE */}
           <section className="service-detail-section" id="loan-advisory">
             <div className="container">
-              <div className="sdg">
-                <div className="sd-content">
-                  <div className="sd-eyebrow reveal">Loan Advisory & Processing</div>
+              <div className="sdg" style={{ gridTemplateColumns: '1fr' }}>
+                <div className="sd-content" style={{ maxWidth: '100%' }}>
+                  <div className="sd-eyebrow reveal">Loan Advisory, Processing & Govt Subsidies</div>
                   <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#fff3e0,#ffe0b2)' }}>🏦</div>
-                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Right Loan, Best Rate<br /><em style={{ color: 'var(--gold-dark)' }}>Zero Hassle Processing</em></h2>
-                  <p className="reveal">Whether you're buying your dream home, funding education, or growing your business — we help you find the right loan from top banks & NBFCs at competitive rates with end-to-end processing support.</p>
-                  <div className="sd-benefits reveal">
-                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Home Loan — up to ₹5 Crore from SBI, HDFC, ICICI, LIC HFL & more</span></div>
-                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Personal Loan — instant approval, minimal documentation</span></div>
-                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Business Loan / MSME Loan — collateral-free options available</span></div>
-                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Education Loan — study in India or abroad, moratorium period included</span></div>
-                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Loan Against Property (LAP) — unlock equity from your assets</span></div>
-                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Balance Transfer & Top-up — reduce EMI or get additional funds</span></div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Every Loan, Every Bank<br /><em style={{ color: 'var(--gold-dark)' }}>Best Rate + Govt Subsidy Support</em></h2>
+                  <p className="reveal">From personal loans to Mudra loans to PMEGP subsidies — we have tie-ups with all major banks and NBFCs. We don't just process loans, we find the best government schemes that give you subsidies, lower interest, and collateral-free funding.</p>
+                  
+                  {/* Subsidy Highlight Box */}
+                  <div className="reveal" style={{ background: 'linear-gradient(135deg, #e8f5e9, #fff8e1)', border: '2px solid var(--gold)', borderRadius: 'var(--radius)', padding: '1.5rem', margin: '1.5rem 0' }}>
+                    <h4 style={{ color: 'var(--green-deeper)', marginBottom: '0.75rem', fontSize: '1.1rem' }}>🎯 Government Loan Schemes & Subsidies We Help You Access</h4>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '0.75rem' }}>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>PMEGP Loan</strong> — Up to ₹50L with 15-35% subsidy for new manufacturing/service units</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Mudra Loan (PMMY)</strong> — Shishu (₹50K), Kishore (₹5L), Tarun (₹10L) — no collateral required</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Stand-Up India</strong> — ₹10L to ₹1Cr for SC/ST/Women entrepreneurs</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>CGTMSE</strong> — Collateral-free loans up to ₹5 Crore with govt guarantee</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>PM SVANidhi</strong> — ₹10K–₹50K for street vendors with interest subsidy</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>PMAY (Credit-Linked)</strong> — ₹2.67L interest subsidy on home loans for EWS/LIG/MIG</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>NSIC Subsidy Schemes</strong> — Raw material & marketing support for MSMEs</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>State Govt Subsidies</strong> — MPIDF, CLCSS, ZED Certification with subsidy support</span></div>
+                    </div>
                   </div>
-                  <div className="sd-who reveal"><h4>💡 Who Should Apply?</h4><p>Salaried employees, self-employed professionals, business owners, students, and NRIs. We compare 25+ lenders to find your best rate and process your file end-to-end.</p></div>
-                  <Link to="/contact?service=loan" className="btn btn-gold reveal">Apply for Loan →</Link>
+
+                  {/* All Loan Types */}
+                  <h4 className="reveal" style={{ color: 'var(--green-deeper)', marginTop: '1.5rem', marginBottom: '1rem', fontSize: '1.1rem' }}>📋 All Types of Loans We Process</h4>
+                  <div className="sd-benefits reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '0.5rem' }}>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Home Loan</strong> — up to ₹5 Crore, lowest rates from 8.25%</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Personal Loan</strong> — instant approval, minimal documents</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Business Loan</strong> — working capital & term loans for all businesses</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>MSME/Udyam Loan</strong> — special rates for registered MSMEs</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Education Loan</strong> — India & abroad, moratorium period included</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Loan Against Property</strong> — unlock equity from your assets</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Gold Loan</strong> — instant cash, lowest interest rates</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Vehicle/Auto Loan</strong> — new & used car, two-wheeler, commercial</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Agriculture Loan</strong> — KCC, crop loan, farm equipment financing</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Balance Transfer & Top-Up</strong> — reduce EMI or get additional funds</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Project Finance</strong> — for large capital expenditure & infra projects</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Startup Loans</strong> — Startup India SIDBI Fund & bank schemes</span></div>
+                  </div>
+                  
+                  <div className="sd-who reveal"><h4>💡 Who Should Apply?</h4><p>Salaried employees, self-employed professionals, business owners, MSMEs, farmers, students, women entrepreneurs, SC/ST entrepreneurs, and NRIs. We compare 30+ banks & NBFCs to find your best rate and maximum subsidy eligibility.</p></div>
+                  <Link to="/contact?service=loan" className="btn btn-gold reveal">Apply for Loan / Check Subsidy →</Link>
                 </div>
-                <div className="sd-visual reveal">
-                  <div className="sd-visual-icon">🏦</div>
-                  <div className="sd-visual-title">Loan Advisory</div>
-                  <div className="sd-visual-sub">Best Rates, Fast Processing</div>
-                  <div className="sd-visual-chips">
-                    <div className="sd-chip">Home Loan</div>
-                    <div className="sd-chip">Personal Loan</div>
-                    <div className="sd-chip">Business Loan</div>
-                    <div className="sd-chip">Education Loan</div>
-                  </div>
+              </div>
+
+              {/* BANK PARTNERS LOGOS */}
+              <div className="reveal" style={{ marginTop: '2.5rem' }}>
+                <h4 style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1.5rem' }}>Our Banking & NBFC Partners</h4>
+                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem', alignItems: 'center' }}>
+                  {['SBI', 'HDFC Bank', 'ICICI Bank', 'PNB', 'Bank of Baroda', 'Axis Bank', 'Kotak Mahindra', 'Union Bank', 'Canara Bank', 'Bank of India', 'Indian Bank', 'IDBI Bank', 'UCO Bank', 'Central Bank', 'Bandhan Bank', 'Federal Bank', 'IDFC First', 'Yes Bank', 'IndusInd Bank', 'Bajaj Finance', 'Tata Capital', 'L&T Finance', 'Muthoot', 'Manappuram', 'SIDBI', 'NABARD'].map((bank) => (
+                    <div key={bank} style={{ background: 'var(--white)', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', padding: '0.6rem 1rem', fontSize: '0.75rem', fontWeight: 700, color: 'var(--green-deeper)', letterSpacing: '0.02em', whiteSpace: 'nowrap', boxShadow: 'var(--shadow-sm)' }}>
+                      {bank}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -817,36 +843,93 @@ export default function Services() {
             </div>
           </section>
 
-          {/* STARTUP INDIA, NGO & IEC */}
+          {/* STARTUP ECOSYSTEM — COMPREHENSIVE */}
           <section className="service-detail-section bg-alt" id="startup-iec">
             <div className="container">
-              <div className="sdg">
-                <div className="sd-content">
-                  <div className="sd-eyebrow reveal">Startup India, NGO & Import-Export</div>
+              <div className="sdg" style={{ gridTemplateColumns: '1fr' }}>
+                <div className="sd-content" style={{ maxWidth: '100%' }}>
+                  <div className="sd-eyebrow reveal">Startup Ecosystem, Investor Connect & NGO</div>
                   <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#fff8e1,#ffd54f)' }}>🚀</div>
-                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Launch, Scale<br /><em style={{ color: 'var(--gold-dark)' }}>& Go Global</em></h2>
-                  <p className="reveal">Whether you're launching a startup, registering an NGO, or expanding into international trade — we provide end-to-end registration, recognition, and compliance services.</p>
-                  <div className="sd-benefits reveal">
-                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Startup India Recognition (DPIIT) — tax benefits & funding eligibility</span></div>
-                    <div className="sd-benefit"><div className="sd-check">✓</div><span>NGO / Trust / Society / Section 8 Company Registration</span></div>
-                    <div className="sd-benefit"><div className="sd-check">✓</div><span>12A & 80G Registration for NGOs — tax exemption for donors</span></div>
-                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Import Export Code (IEC) — mandatory for all international trade</span></div>
-                    <div className="sd-benefit"><div className="sd-check">✓</div><span>RCMC (Registration-cum-Membership Certificate) from export councils</span></div>
-                    <div className="sd-benefit"><div className="sd-check">✓</div><span>AD Code registration with customs for export payment processing</span></div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>From Idea to IPO<br /><em style={{ color: 'var(--gold-dark)' }}>We Build the Bridge</em></h2>
+                  <p className="reveal">Whether you have a business idea that needs validation, a startup that needs funding, or an investor looking for opportunities — we provide the complete startup ecosystem support: registration, funding access, govt schemes, investor matchmaking, and compliance.</p>
+                  
+                  <h4 className="reveal" style={{ color: 'var(--green-deeper)', marginTop: '1.5rem', marginBottom: '1rem', fontSize: '1.1rem' }}>🏢 Startup Registration & Benefits</h4>
+                  <div className="sd-benefits reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '0.5rem' }}>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>DPIIT Recognition</strong> — Startup India registration with 3-year tax holiday</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Self-Certification</strong> — compliance under 6 labour & 3 environment laws</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Patent Fast-Track</strong> — 80% rebate on patent filing for DPIIT startups</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Angel Tax Exemption</strong> — Section 56(2)(viib) exemption for recognized startups</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Public Procurement</strong> — GeM listing & govt tender relaxation for startups</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Easy Winding Up</strong> — Insolvency resolution in 90 days for startups</span></div>
                   </div>
-                  <div className="sd-who reveal"><h4>💡 Who Needs This?</h4><p>Startups seeking DPIIT benefits & funding, social entrepreneurs registering NGOs, and businesses importing/exporting goods or services internationally.</p></div>
-                  <Link to="/contact?service=other&message=I%20need%20Startup%20India%2FNGO%2FIEC%20registration%20services." className="btn btn-gold reveal">Get Started →</Link>
+
+                  <div className="reveal" style={{ background: 'linear-gradient(135deg, #e3f2fd, #fff3e0)', border: '2px solid var(--gold)', borderRadius: 'var(--radius)', padding: '1.5rem', margin: '1.5rem 0' }}>
+                    <h4 style={{ color: 'var(--green-deeper)', marginBottom: '0.75rem', fontSize: '1.1rem' }}>💰 Funding & Investor Access</h4>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '0.75rem' }}>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>SIDBI Fund of Funds</strong> — ₹10,000 Crore fund for startup equity investment</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Startup India Seed Fund (SISFS)</strong> — ₹20L–₹50L for proof of concept</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>AIM / Atal Incubation</strong> — ₹10 Crore grant for incubators & innovators</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Angel Investor Network</strong> — connect with HNIs & angel investors</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>VC/PE Fundraising</strong> — pitch deck prep & venture capital introductions</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Crowdfunding Support</strong> — equity & reward-based crowdfunding guidance</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Business Idea Validation</strong> — market research, viability analysis & revenue modelling</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Incubator/Accelerator</strong> — connect with 200+ govt & private incubators</span></div>
+                    </div>
+                  </div>
+
+                  <h4 className="reveal" style={{ color: 'var(--green-deeper)', marginTop: '1.5rem', marginBottom: '1rem', fontSize: '1.1rem' }}>🌍 NGO, Trust & Import-Export</h4>
+                  <div className="sd-benefits reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '0.5rem' }}>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>NGO/Trust/Society/Sec 8</strong> — Complete registration & compliance</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>12A & 80G</strong> — Tax exemption for NGOs & donors</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>FCRA Registration</strong> — For receiving foreign donations</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>IEC Code</strong> — Import Export Code for international trade</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>RCMC</strong> — Registration with export promotion councils</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>AD Code</strong> — Customs registration for export payments</span></div>
+                  </div>
+                  
+                  <div className="sd-who reveal"><h4>💡 Who Is This For?</h4><p>First-time entrepreneurs with business ideas, startups seeking funding & recognition, investors looking for vetted startup opportunities, NGOs needing compliance, and exporters/importers entering international markets.</p></div>
+                  <Link to="/contact?service=other&message=I%20need%20startup%20ecosystem%20%2F%20investor%20connect%20%2F%20NGO%20services." className="btn btn-gold reveal">Launch Your Startup →</Link>
                 </div>
-                <div className="sd-visual reveal">
-                  <div className="sd-visual-icon">🚀</div>
-                  <div className="sd-visual-title">Startup & Trade</div>
-                  <div className="sd-visual-sub">Launch & Go Global</div>
-                  <div className="sd-visual-chips">
-                    <div className="sd-chip">Startup India</div>
-                    <div className="sd-chip">NGO/Trust</div>
-                    <div className="sd-chip">IEC Code</div>
-                    <div className="sd-chip">12A & 80G</div>
+              </div>
+            </div>
+          </section>
+
+          {/* GOVT SUBSIDIES & PROJECT FINANCE */}
+          <section className="service-detail-section" id="govt-subsidies">
+            <div className="container">
+              <div className="sdg" style={{ gridTemplateColumns: '1fr' }}>
+                <div className="sd-content" style={{ maxWidth: '100%' }}>
+                  <div className="sd-eyebrow reveal">Govt Subsidies & Project Support</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#e8eaf6,#7986cb)' }}>🏛️</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Government Subsidies<br /><em style={{ color: 'var(--gold-dark)' }}>Turn Your Project into Reality</em></h2>
+                  <p className="reveal">The government gives crores in subsidies every year — but most businesses don't know how to access them. We identify every scheme you're eligible for, prepare your project report, and file your subsidy applications end-to-end.</p>
+                  
+                  <div className="reveal" style={{ background: 'linear-gradient(135deg, #f3e5f5, #e8f5e9)', border: '2px solid var(--green)', borderRadius: 'var(--radius)', padding: '1.5rem', margin: '1.5rem 0' }}>
+                    <h4 style={{ color: 'var(--green-deeper)', marginBottom: '0.75rem', fontSize: '1.1rem' }}>🎯 Major Central & State Govt Subsidy Schemes</h4>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '0.75rem' }}>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>PLI Scheme</strong> — Production-Linked Incentive across 14 sectors</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>CLCSS</strong> — Credit Linked Capital Subsidy (15% on plant & machinery)</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>SFURTI</strong> — Scheme for traditional industries cluster development</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>ASPIRE</strong> — Agro/rural industry incubation & livelihood business</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>ZED Certification</strong> — Zero Defect Zero Effect with subsidy support</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>Technology Upgradation</strong> — TUFS, ATUF for textile & manufacturing</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>State Industrial Policy</strong> — Capital subsidy, stamp duty, power tariff benefits</span></div>
+                      <div className="sd-benefit"><div className="sd-check">✓</div><span><strong>MSME Subsidy Schemes</strong> — DIC & state MSME subsidies</span></div>
+                    </div>
                   </div>
+
+                  <h4 className="reveal" style={{ color: 'var(--green-deeper)', marginTop: '1.5rem', marginBottom: '1rem', fontSize: '1.1rem' }}>📑 Our Project Support Services</h4>
+                  <div className="sd-benefits reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '0.5rem' }}>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Detailed Project Report (DPR) preparation for bank & subsidy</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Techno-Economic Viability (TEV) study & CMA data</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Subsidy eligibility assessment — central + state schemes</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>End-to-end subsidy application & claim filing</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Land/industrial plot allotment assistance (MIDC, RIICO, GIDC)</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Upcoming govt scheme alerts & pre-registration support</span></div>
+                  </div>
+
+                  <div className="sd-who reveal"><h4>💡 Who Benefits?</h4><p>Manufacturers, food processors, agri-businesses, tech companies, traditional artisans, exporters, and any MSME or large enterprise setting up or expanding operations. If you're investing in a project — there's likely a subsidy you're missing.</p></div>
+                  <Link to="/contact?service=other&message=I%20need%20help%20with%20Govt%20Subsidies%20and%20Project%20Report%20preparation." className="btn btn-gold reveal">Check Subsidy Eligibility →</Link>
                 </div>
               </div>
             </div>
