@@ -31,59 +31,87 @@ function ScrollToTopAndAnimations() {
     }
   }, [location.pathname, location.search, location.hash]);
 
-  // 2. Setup IntersectionObserver and MutationObserver for reveal animations
+  // 2. Setup IntersectionObserver for reveal animations
   useEffect(() => {
+    // --- STEP A: Reset all reveal states from previous page ---
+    document.querySelectorAll('.reveal').forEach((el) => {
+      el.classList.remove('reveal-init', 'visible');
+      el.removeAttribute('data-delay');
+    });
+
+    // --- STEP B: Create a robust IntersectionObserver ---
     const revealObs = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        const delay = parseInt(entry.target.getAttribute('data-delay') || '0', 10);
-        setTimeout(() => {
-          if (entry.target) entry.target.classList.add('visible');
-        }, delay);
-        revealObs.unobserve(entry.target);
+        const el = entry.target;
+        const delay = parseInt(el.getAttribute('data-delay') || '0', 10);
+        if (delay > 0) {
+          setTimeout(() => {
+            if (el) el.classList.add('visible');
+          }, delay);
+        } else {
+          el.classList.add('visible');
+        }
+        revealObs.unobserve(el);
       });
-    }, { threshold: 0.05, rootMargin: '0px 0px 180px 0px' });
+    }, { threshold: 0.01, rootMargin: '0px 0px 100px 0px' });
 
     const setupRevealElements = () => {
       const revealEls = document.querySelectorAll('.reveal');
+      const viewportH = window.innerHeight;
+
       revealEls.forEach((el) => {
-        // If already showing or animated, skip
-        if (el.classList.contains('visible')) return;
+        // Skip already processed
+        if (el.classList.contains('visible') || el.classList.contains('reveal-init')) return;
 
         const rect = el.getBoundingClientRect();
-        // Check if element is below the fold (not visible initially)
-        const isBelowFold = rect.top > window.innerHeight + 100;
+        const isInViewport = rect.top < viewportH + 50;
 
-        if (isBelowFold) {
-          if (el.classList.contains('reveal-init')) return;
-          
-          // Set cascading delay
-          const siblings = Array.from(el.parentElement.querySelectorAll('.reveal'));
-          const delay = siblings.indexOf(el) * 35; // Snappy 35ms delay
-          el.setAttribute('data-delay', delay.toString());
-
-          // Hide and observe
-          el.classList.add('reveal-init');
-          revealObs.observe(el);
+        if (isInViewport) {
+          // Element is in viewport — show it immediately (CSS animation handles fade)
+          // Don't add reveal-init, just let the default .reveal animation play
+          return;
         }
-        // If above the fold, we do nothing. The CSS keyframe animation handles its fade-in automatically!
+
+        // Element is below fold — hide it and observe for scroll
+        const siblings = Array.from(el.parentElement.querySelectorAll('.reveal'));
+        const idx = siblings.indexOf(el);
+        const delay = Math.min(idx * 30, 200); // Max 200ms delay
+        el.setAttribute('data-delay', delay.toString());
+        el.classList.add('reveal-init');
+        revealObs.observe(el);
       });
     };
 
-    // Run initial check after DOM has had a moment to settle
-    const timer = setTimeout(() => {
-      setupRevealElements();
-    }, 150);
-
-    // Watch for dynamic additions to the DOM (like tab switcher panels mounting new cards)
-    const mutationObs = new MutationObserver(() => {
-      setupRevealElements();
+    // --- STEP C: Wait for DOM paint, then set up ---
+    // Use double-requestAnimationFrame to ensure the browser has painted the new page
+    const rafId = requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setupRevealElements();
+      });
     });
 
+    // --- STEP D: Watch for dynamic DOM additions (e.g. tab switches) ---
+    let mutationDebounce = null;
+    const mutationObs = new MutationObserver(() => {
+      clearTimeout(mutationDebounce);
+      mutationDebounce = setTimeout(() => {
+        setupRevealElements();
+      }, 50);
+    });
     mutationObs.observe(document.body, { childList: true, subtree: true });
 
+    // --- STEP E: Safety fallback — force show any stuck elements after 1.5s ---
+    const fallbackTimer = setTimeout(() => {
+      document.querySelectorAll('.reveal.reveal-init:not(.visible)').forEach((el) => {
+        el.classList.add('visible');
+      });
+    }, 1500);
+
     return () => {
-      clearTimeout(timer);
+      cancelAnimationFrame(rafId);
+      clearTimeout(mutationDebounce);
+      clearTimeout(fallbackTimer);
       revealObs.disconnect();
       mutationObs.disconnect();
     };
