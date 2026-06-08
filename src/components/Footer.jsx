@@ -47,12 +47,12 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Our Services</h4>
             <ul>
-              <li><Link to="/services#health">Health Insurance</Link></li>
-              <li><Link to="/services#term">Term Life Insurance</Link></li>
+              <li><Link to="/services#health">Health & Term Insurance</Link></li>
               <li><Link to="/services#gst">GST Registration & Filing</Link></li>
               <li><Link to="/services#itr">ITR Filing & Tax Audit</Link></li>
-              <li><Link to="/services#company">Company Registration</Link></li>
-              <li><Link to="/services#investment">Wealth & Investments</Link></li>
+              <li><Link to="/services#gem">GEM & OEM Registration</Link></li>
+              <li><Link to="/services#certificates">Govt Certificates (CSC)</Link></li>
+              <li><Link to="/services#student-desk">Student Scholarship Desk</Link></li>
             </ul>
           </div>
           <div className="footer-col">
@@ -84,7 +84,7 @@ export default function Footer() {
         </div>
         <div className="footer-gold-bar"></div>
         <div className="footer-bottom">
-          <p>© 2024 SureVriksha Financial Advisory by Yashraj Jain. All rights reserved. | Insurance subject to IRDAI regulations.</p>
+          <p>© 2024 SureVriksha Financial Advisory. All rights reserved. | Insurance subject to IRDAI regulations.</p>
           <Link to="/privacy">Privacy Policy</Link>
         </div>
       </div>

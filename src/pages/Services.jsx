@@ -9,30 +9,35 @@ export default function Services() {
   useEffect(() => {
     const tabParam = searchParams.get('tab');
     const hash = location.hash;
-    const taxHashes = ['#gst', '#itr', '#company', '#msme', '#licenses'];
+    
+    const taxHashes = ['#gst', '#itr', '#company', '#msme', '#licenses', '#gem', '#oem', '#stock-audit'];
+    const govtHashes = ['#certificates', '#id-corrections', '#rto', '#passport-visa', '#student-desk', '#caste', '#income', '#residence', '#pan-change', '#aadhaar-change', '#voter-change', '#scholarships'];
 
     if (tabParam === 'tax' || taxHashes.includes(hash)) {
       setActiveTab('tax-services');
-      if (hash) {
-        setTimeout(() => {
-          const el = document.querySelector(hash);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 300);
-      }
+    } else if (tabParam === 'govt' || govtHashes.includes(hash)) {
+      setActiveTab('govt-services');
     } else {
       setActiveTab('insurance-services');
-      if (hash) {
-        setTimeout(() => {
-          const el = document.querySelector(hash);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 300);
-      }
+    }
+
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
     }
   }, [searchParams, location.hash]);
 
   const handleTabChange = (tabId) => {
     setActiveTab(tabId);
-    setSearchParams(tabId === 'tax-services' ? { tab: 'tax' } : { tab: 'insurance' });
+    setSearchParams(
+      tabId === 'tax-services' 
+        ? { tab: 'tax' } 
+        : tabId === 'govt-services' 
+        ? { tab: 'govt' } 
+        : { tab: 'insurance' }
+    );
   };
 
   return (
@@ -58,6 +63,12 @@ export default function Services() {
             onClick={() => handleTabChange('tax-services')}
           >
             Tax & Corporate Services
+          </button>
+          <button 
+            className={`tab-btn ${activeTab === 'govt-services' ? 'active' : ''}`}
+            onClick={() => handleTabChange('govt-services')}
+          >
+            Govt & Student Services
           </button>
         </div>
       </div>
@@ -484,6 +495,285 @@ export default function Services() {
                     <div className="sd-chip">FSSAI License</div>
                     <div className="sd-chip">Import Export (IEC)</div>
                     <div className="sd-chip">ISO Certification</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* GEM & TENDERS */}
+          <section className="service-detail-section bg-alt" id="gem">
+            <div className="container">
+              <div className="sdg">
+                <div className="sd-content">
+                  <div className="sd-eyebrow reveal">GEM & Tender Portal</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#e3f2fd,#bbdefb)' }}>💼</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Grow Your Business with<br /><em style={{ color: 'var(--gold-dark)' }}>Government Contracts</em></h2>
+                  <p className="reveal">Sell your products and services directly to government departments. We handle your complete Government e-Marketplace (GEM) vendor profile setup, product catalog listing, and tender bidding compliance.</p>
+                  <div className="sd-benefits reveal">
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>GEM Seller & Service Provider Profile Registration</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Catalog Management: Product uploading & Brand approval</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Direct purchase, L1 bidding, and reverse auctions support</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Daily tender searches mapped to your business code</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Bid preparation, document check, and online submission</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Post-bid representation and invoice compliance support</span></div>
+                  </div>
+                  <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Manufacturers, service providers, contractors, and traders looking to secure high-value government orders with transparent payments.</p></div>
+                  <Link to="/contact?service=gem" className="btn btn-gold reveal">Apply for GEM / Tender Support →</Link>
+                </div>
+                <div className="sd-visual reveal badge-blue">
+                  <div className="sd-visual-icon">💼</div>
+                  <div className="sd-visual-title">GEM Bidding</div>
+                  <div className="sd-visual-sub">Government e-Marketplace Services</div>
+                  <div className="sd-visual-chips">
+                    <div className="sd-chip">Vendor Registration</div>
+                    <div className="sd-chip">Product Uploads</div>
+                    <div className="sd-chip">Tender Bidding</div>
+                    <div className="sd-chip">L1 Procurement</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* OEM REGISTRATION */}
+          <section className="service-detail-section" id="oem">
+            <div className="container">
+              <div className="sdg">
+                <div className="sd-content">
+                  <div className="sd-eyebrow reveal">OEM Registration</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#fff8e1,#ffecb3)' }}>⚙️</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Original Equipment Manufacturer<br /><em style={{ color: 'var(--gold-dark)' }}>GEM Verification</em></h2>
+                  <p className="reveal">Unlock the power to list your manufactured products directly on the GEM portal without intermediaries. We manage your OEM dashboard approvals, vendor assessments by Quality Council of India (QCI), and brand listings.</p>
+                  <div className="sd-benefits reveal">
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>GEM OEM Panel registration & Quality Assessment filing</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Brand creation and approval on the GEM marketplace</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Complete QCI assessment documentation and preparation support</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Linking secondary sellers (resellers) to your OEM catalog</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>OEM dashboard management for direct product pricing control</span></div>
+                  </div>
+                  <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Actual manufacturers, trademark owners, and exclusive brand distributors who want to control their brand listing on GEM.</p></div>
+                  <Link to="/contact?service=licenses&message=I%20need%20GEM%20OEM%20registration%20and%20vendor%20assessment%20support." className="btn btn-gold reveal">Register OEM Now →</Link>
+                </div>
+                <div className="sd-visual reveal badge-orange">
+                  <div className="sd-visual-icon">⚙️</div>
+                  <div className="sd-visual-title">OEM Panel</div>
+                  <div className="sd-visual-sub">Brand & QCI Verification</div>
+                  <div className="sd-visual-chips">
+                    <div className="sd-chip">OEM Dashboard</div>
+                    <div className="sd-chip">QCI Assessment</div>
+                    <div className="sd-chip">Brand Approval</div>
+                    <div className="sd-chip">Reseller Mapping</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* STOCK AUDIT */}
+          <section className="service-detail-section bg-alt" id="stock-audit">
+            <div className="container">
+              <div className="sdg">
+                <div className="sd-content">
+                  <div className="sd-eyebrow reveal">Stock Audit</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#e8f5e9,#a5d6a7)' }}>📋</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Secure Inventory Control<br /><em style={{ color: 'var(--gold-dark)' }}>With Reliable Stock Audits</em></h2>
+                  <p className="reveal">Compliance and inventory validation are crucial for corporate credit and business health. We conduct professional stock audits, inventory valuations, and asset verification reports at highly reliable rates.</p>
+                  <div className="sd-benefits reveal">
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Physical verification of stock and matching with books of account</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Accurate inventory valuation using compliant accounting standards</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Verification of storage condition, slow-moving items, and damage checks</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Compliant audit reports for Bank CC/OD limits renewal</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Internal controls review to prevent stock leakages or theft</span></div>
+                  </div>
+                  <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Businesses availing bank cash-credit (CC) or overdraft (OD) facilities, wholesalers, large retailers, and manufacturing units.</p></div>
+                  <Link to="/contact?service=itr&message=I%20need%20a%20Stock%20Audit%20and%20verification%20report%20for%20my%20business." className="btn btn-gold reveal">Request Stock Audit →</Link>
+                </div>
+                <div className="sd-visual reveal badge-teal">
+                  <div className="sd-visual-icon">📋</div>
+                  <div className="sd-visual-title">Stock Audit</div>
+                  <div className="sd-visual-sub">Inventory Verification & Valuation</div>
+                  <div className="sd-visual-chips">
+                    <div className="sd-chip">Physical Check</div>
+                    <div className="sd-chip">Valuation Report</div>
+                    <div className="sd-chip">Bank CC Audit</div>
+                    <div className="sd-chip">Internal Control</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      )}
+
+      {/* GOVERNMENT & STUDENT SERVICES (JANA SEVA KENDRA) TAB PANEL */}
+      {activeTab === 'govt-services' && (
+        <div id="govt-services" className="tab-panel active">
+          {/* CSC CERTIFICATES */}
+          <section className="service-detail-section" id="certificates">
+            <div className="container">
+              <div className="sdg">
+                <div className="sd-content">
+                  <div className="sd-eyebrow reveal">CSC Government Certificates</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#e3f2fd,#bbdefb)' }}>📜</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Official Certificate Apply<br /><em style={{ color: 'var(--gold-dark)' }}>Hassle-Free Online</em></h2>
+                  <p className="reveal">No need to visit government offices or wait in long lines. We handle the entire application process for Caste, Income, and Residence/Domicile certificates through verified CSC / Jana Seva Kendra channels.</p>
+                  <div className="sd-benefits reveal">
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span id="caste">Caste Certificate: SC, ST, OBC, and SEBC certificate apply</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span id="residence">Resident/Domicile Certificate: Online proof of address verification</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span id="income">Income Certificate: Government verified annual income certificates</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Birth and Death Certificate online application support</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Proper documentation checking before submission to prevent rejection</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Real-time status tracking and certificate downloading assistance</span></div>
+                  </div>
+                  <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Students applying for scholarships, job seekers, and citizens looking to avail government scheme benefits.</p></div>
+                  <Link to="/contact?service=other&message=I%20need%20help%20applying%20for%20a%20Government%20Certificate%20(Caste%2FIncome%2FResidence)." className="btn btn-gold reveal">Apply for Certificates →</Link>
+                </div>
+                <div className="sd-visual reveal badge-blue">
+                  <div className="sd-visual-icon">📜</div>
+                  <div className="sd-visual-title">CSC Services</div>
+                  <div className="sd-visual-sub">Official Govt Certificates</div>
+                  <div className="sd-visual-chips">
+                    <div className="sd-chip">Caste Certificate</div>
+                    <div className="sd-chip">Income Proof</div>
+                    <div className="sd-chip">Residence / Domicile</div>
+                    <div className="sd-chip">Birth & Death</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ID CARD CORRECTIONS */}
+          <section className="service-detail-section bg-alt" id="id-corrections">
+            <div className="container">
+              <div className="sdg">
+                <div className="sd-content">
+                  <div className="sd-eyebrow reveal">Identity Corrections</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#e8f5e9,#c8e6c9)' }}>🆔</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Correct Name, Date of Birth<br /><em style={{ color: 'var(--gold-dark)' }}>& Address On Your IDs</em></h2>
+                  <p className="reveal">Errors on identity cards cause major banking and travel problems. We provide comprehensive consultancy and form-filling support for correcting PAN, Voter ID, and Aadhaar cards.</p>
+                  <div className="sd-benefits reveal">
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span id="pan-change">PAN Card corrections: Name, Date of Birth, Father's Name change</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span id="aadhaar-change">Aadhaar Card update consultancy: Address, Name, Phone linking guide</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span id="voter-change">Voter ID Card correction and digital EPIC card download support</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Name correction in Educational marksheets/certificates guide</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Official Gazette notification advisory for legal name changes</span></div>
+                  </div>
+                  <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Individuals facing mismatch errors in bank accounts, passport applications, job verification, or tax filings.</p></div>
+                  <Link to="/contact?service=other&message=I%20need%20help%20correcting%20my%20details%20on%20my%20ID%20cards%20(PAN%2FAadhaar%2FVoter)." className="btn btn-gold reveal">Start ID Correction →</Link>
+                </div>
+                <div className="sd-visual reveal badge-teal">
+                  <div className="sd-visual-icon">🆔</div>
+                  <div className="sd-visual-title">ID Updates</div>
+                  <div className="sd-visual-sub">Profile Corrections & Linking</div>
+                  <div className="sd-visual-chips">
+                    <div className="sd-chip">PAN Card Changes</div>
+                    <div className="sd-chip">Aadhaar Correction</div>
+                    <div className="sd-chip">Voter Card Update</div>
+                    <div className="sd-chip">Gazette Advisory</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* RTO SERVICES */}
+          <section className="service-detail-section" id="rto">
+            <div className="container">
+              <div className="sdg">
+                <div className="sd-content">
+                  <div className="sd-eyebrow reveal">RTO Services</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#fff8e1,#ffecb3)' }}>🚗</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>RTO Licensing & Vehicle<br /><em style={{ color: 'var(--gold-dark)' }}>Registration Services</em></h2>
+                  <p className="reveal">Skip the confusion of RTO rules. We provide professional consultancy for driving licenses, vehicle registrations, tax payments, and RC transfers through official online portals.</p>
+                  <div className="sd-benefits reveal">
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Fresh Driving License: Learner's & Permanent License apply</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Driving License Renewals and Address changes</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Vehicle RC Transfer (Transfer of Ownership) support</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Duplicate RC issue and High Security Registration Plate (HSRP) booking</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>State-tax payments, NOC applications, and fitness certificate guide</span></div>
+                  </div>
+                  <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Car & bike owners, buyers of second-hand vehicles, and people relocating to different states requiring state transfer.</p></div>
+                  <Link to="/contact?service=motor&message=I%20need%20RTO%20License%20or%20RC%20transfer%20consultancy." className="btn btn-gold reveal">Apply for RTO Service →</Link>
+                </div>
+                <div className="sd-visual reveal badge-orange">
+                  <div className="sd-visual-icon">🚗</div>
+                  <div className="sd-visual-title">RTO Desk</div>
+                  <div className="sd-visual-sub">Licensing & Registration Support</div>
+                  <div className="sd-visual-chips">
+                    <div className="sd-chip">Driving License</div>
+                    <div className="sd-chip">RC Transfer</div>
+                    <div className="sd-chip">Tax Payments</div>
+                    <div className="sd-chip">Duplicate RC</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* PASSPORT & VISA */}
+          <section className="service-detail-section bg-alt" id="passport-visa">
+            <div className="container">
+              <div className="sdg">
+                <div className="sd-content">
+                  <div className="sd-eyebrow reveal">Passport & VISA</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#fce4ec,#f8bbd0)' }}>✈️</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Global Travel Made Easy<br /><em style={{ color: 'var(--gold-dark)' }}>Passport & VISA Services</em></h2>
+                  <p className="reveal">Planning an international vacation, study abroad, or global business expansion? We handle the entire application process for Indian Passports and assist in VISA documentation.</p>
+                  <div className="sd-benefits reveal">
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Apply for Fresh Passport and Re-issue of expired Passport</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Tatkaal Passport applications for urgent travel needs</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Documents checklist verification to prevent PSK rejection</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>VISA Consultancy: Tourist, Business, and Student VISA documents review</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Online form filling, appointment booking, and fee payment management</span></div>
+                  </div>
+                  <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Individuals planning overseas travel, corporate teams going abroad, and students heading to international colleges.</p></div>
+                  <Link to="/contact?service=travel&message=I%20want%20to%20apply%20for%20Passport%2FVISA%20consultancy." className="btn btn-gold reveal">Get Passport / VISA Help →</Link>
+                </div>
+                <div className="sd-visual reveal badge-violet">
+                  <div className="sd-visual-icon">✈️</div>
+                  <div className="sd-visual-title">Global Travel</div>
+                  <div className="sd-visual-sub">Application & Scheduling Desk</div>
+                  <div className="sd-visual-chips">
+                    <div className="sd-chip">Fresh Passport</div>
+                    <div className="sd-chip">Renewals</div>
+                    <div className="sd-chip">VISA Check</div>
+                    <div className="sd-chip">Appointment</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* STUDENT DESK */}
+          <section className="service-detail-section" id="student-desk">
+            <div className="container">
+              <div className="sdg">
+                <div className="sd-content">
+                  <div className="sd-eyebrow reveal">Student Desk</div>
+                  <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#f3e5f5,#e1bee7)' }}>🎓</div>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Scholarships, Admissions<br /><em style={{ color: 'var(--gold-dark)' }}>& Competitive Exam Forms</em></h2>
+                  <p className="reveal">Never miss an academic deadline. We provide dedicated application support for state/national scholarships, competitive examinations registration, and college applications.</p>
+                  <div className="sd-benefits reveal">
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span id="scholarships">Scholarship Applications: NSP, State Scholarships, and merit schemes</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Competitive Exams form-filling: JEE, NEET, CUET, Banking, SSC, and state exams</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>College/University admission form submissions</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Document scanning, resizing, and uploading in required pixel/size formats</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Alert notifications for last dates, correction windows, and admit card release</span></div>
+                  </div>
+                  <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Students, parents, and job aspirants looking for error-free forms submission to prevent registration rejection.</p></div>
+                  <Link to="/contact?service=other&message=I%20need%20assistance%20for%20Scholarship%2FExam%2FCollege%20applications." className="btn btn-gold reveal">Apply Now →</Link>
+                </div>
+                <div className="sd-visual reveal badge-purple">
+                  <div className="sd-visual-icon">🎓</div>
+                  <div className="sd-visual-title">Student Desk</div>
+                  <div className="sd-visual-sub">Academic Forms & Scholarships</div>
+                  <div className="sd-visual-chips">
+                    <div className="sd-chip">Scholarships</div>
+                    <div className="sd-chip">Exam Forms</div>
+                    <div className="sd-chip">Admissions</div>
+                    <div className="sd-chip">Format Resize</div>
                   </div>
                 </div>
               </div>

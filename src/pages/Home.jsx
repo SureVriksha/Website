@@ -196,7 +196,13 @@ export default function Home() {
                 className={`tab-btn ${activeTab === 'tax-services' ? 'active' : ''}`}
                 onClick={() => setActiveTab('tax-services')}
               >
-                Tax & Business Services
+                Tax & Corporate Services
+              </button>
+              <button 
+                className={`tab-btn ${activeTab === 'govt-services' ? 'active' : ''}`}
+                onClick={() => setActiveTab('govt-services')}
+              >
+                Govt & Student Services
               </button>
             </div>
           </div>
@@ -270,6 +276,24 @@ export default function Home() {
                 <p>Get Udyam Certification to unlock government schemes, bank credit benefits, interest subsidies, and MSME support.</p>
                 <div className="service-arrow">Explore plan <span>→</span></div>
               </Link>
+              <Link to="/services#gem" className="service-card reveal" aria-label="GEM Portal Services">
+                <div className="service-icon-box" style={{ background: 'linear-gradient(135deg,#e8eaf6,#c5cae9)' }}>💼</div>
+                <h3>GEM & Tender Services</h3>
+                <p>Register as a seller on Government e-Marketplace, search tenders, prepare documentation, and submit bids.</p>
+                <div className="service-arrow">Explore plan <span>→</span></div>
+              </Link>
+              <Link to="/services#oem" className="service-card reveal" aria-label="OEM Registration">
+                <div className="service-icon-box" style={{ background: 'linear-gradient(135deg,#fff8e1,#ffecb3)' }}>⚙️</div>
+                <h3>OEM Registration</h3>
+                <p>Get Original Equipment Manufacturer (OEM) vendor dashboard approval on GEM to list your branded products.</p>
+                <div className="service-arrow">Explore plan <span>→</span></div>
+              </Link>
+              <Link to="/services#stock-audit" className="service-card reveal" aria-label="Stock Audits">
+                <div className="service-icon-box" style={{ background: 'linear-gradient(135deg,#e8f5e9,#a5d6a7)' }}>📋</div>
+                <h3>Stock Audit</h3>
+                <p>Expert inventory valuation, asset verification, and compliant stock audit reports for banks and corporates.</p>
+                <div className="service-arrow">Explore plan <span>→</span></div>
+              </Link>
               <Link to="/services#licenses" className="service-card reveal" aria-label="Business Licenses">
                 <div className="service-icon-box" style={{ background: 'linear-gradient(135deg,#f3e5f5,#e1bee7)' }}>🔑</div>
                 <h3>Licenses & Registrations</h3>
@@ -279,13 +303,113 @@ export default function Home() {
             </div>
           )}
 
+          {/* Govt & Student Services Tab Panel */}
+          {activeTab === 'govt-services' && (
+            <div className="services-grid">
+              <Link to="/services#certificates" className="service-card reveal" aria-label="Jana Seva Kendra certificates">
+                <div className="service-icon-box" style={{ background: 'linear-gradient(135deg,#e3f2fd,#bbdefb)' }}>📜</div>
+                <h3>Govt Certificates (CSC)</h3>
+                <p>Fast application support for caste, residence, income, birth, and death certificates at highly reliable rates.</p>
+                <div className="service-arrow">Explore plan <span>→</span></div>
+              </Link>
+              <Link to="/services#id-corrections" className="service-card reveal" aria-label="Identity corrections">
+                <div className="service-icon-box" style={{ background: 'linear-gradient(135deg,#e8f5e9,#c8e6c9)' }}>🆔</div>
+                <h3>PAN, Aadhaar & Voter Changes</h3>
+                <p>Hassle-free updates and corrections consultancy for your government identity documents without long queues.</p>
+                <div className="service-arrow">Explore plan <span>→</span></div>
+              </Link>
+              <Link to="/services#rto" className="service-card reveal" aria-label="RTO services">
+                <div className="service-icon-box" style={{ background: 'linear-gradient(135deg,#fff8e1,#ffecb3)' }}>🚗</div>
+                <h3>RTO Services</h3>
+                <p>Apply for a fresh driving license, renewal, vehicle registration, and RC transfers with certified guidance.</p>
+                <div className="service-arrow">Explore plan <span>→</span></div>
+              </Link>
+              <Link to="/services#passport-visa" className="service-card reveal" aria-label="Passport & VISA services">
+                <div className="service-icon-box" style={{ background: 'linear-gradient(135deg,#fce4ec,#f8bbd0)' }}>✈️</div>
+                <h3>Passport & VISA Services</h3>
+                <p>End-to-end guidance for fresh passports, renewals, and travel VISA applications for worry-free travel.</p>
+                <div className="service-arrow">Explore plan <span>→</span></div>
+              </Link>
+              <Link to="/services#student-desk" className="service-card reveal" aria-label="Student Desk">
+                <div className="service-icon-box" style={{ background: 'linear-gradient(135deg,#f3e5f5,#e1bee7)' }}>🎓</div>
+                <h3>Student Desk</h3>
+                <p>Apply for national/state scholarships, fill out college admission forms, and register for competitive exams.</p>
+                <div className="service-arrow">Explore plan <span>→</span></div>
+              </Link>
+            </div>
+          )}
+
           <div className="text-center reveal" style={{ marginTop: '3rem' }}>
             <Link 
-              to={activeTab === 'insurance-services' ? "/services?tab=insurance" : "/services?tab=tax"} 
+              to={activeTab === 'insurance-services' ? "/services?tab=insurance" : activeTab === 'tax-services' ? "/services?tab=tax" : "/services?tab=govt"} 
               className="btn btn-primary btn-lg"
             >
               View All Services
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* EXCLUSIVE COMBO OFFERS */}
+      <section className="offers-section" aria-labelledby="offers-h" style={{ padding: '6.5rem 0', background: 'linear-gradient(180deg, var(--white) 0%, var(--bg) 100%)', position: 'relative', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+        <div className="container">
+          <div className="section-header reveal">
+            <div className="section-tag">Limited-Time Special Deals</div>
+            <h2 id="offers-h">Save More With Our<br /><em style={{ fontStyle: 'italic', color: 'var(--gold-dark)' }}>Exclusive Combo Offers</em></h2>
+            <p className="section-desc">We handle all your financial and government work. Get the most reliable rates with our special compliance & protection combos.</p>
+          </div>
+
+          <div className="offers-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+            {/* Offer 1 */}
+            <div className="offer-card reveal" style={{ background: 'white', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', transition: 'var(--transition)', boxShadow: 'var(--shadow-sm)', position: 'relative', overflow: 'hidden' }}>
+              <div className="offer-badge" style={{ position: 'absolute', top: '22px', right: '-34px', background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))', color: 'var(--green-deeper)', padding: '0.4rem 3rem', transform: 'rotate(45deg)', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.05em', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>10% OFF</div>
+              <div>
+                <div className="offer-icon" style={{ fontSize: '2.5rem', marginBottom: '1.25rem' }}>🎁</div>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '0.75rem' }}>ITR + Insurance Deal</h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '1.5rem' }}>File your Income Tax Return (ITR) with us and get a **flat 10% discount** on your next Insurance policy premium (Health, Term, or Motor).</p>
+              </div>
+              <Link to="/contact?service=itr&message=I%20want%20to%20file%20my%20ITR%20and%20avail%20the%2010%25%20Insurance%20discount%20combo." className="btn btn-gold" style={{ justifyContent: 'center' }}>Claim Combo Deal →</Link>
+            </div>
+
+            {/* Offer 2 */}
+            <div className="offer-card reveal" style={{ background: 'white', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', transition: 'var(--transition)', boxShadow: 'var(--shadow-sm)' }}>
+              <div>
+                <div className="offer-icon" style={{ fontSize: '2.5rem', marginBottom: '1.25rem' }}>🏢</div>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '0.75rem' }}>Startup Launchpack</h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '1.5rem' }}>Incorporate your Company (Pvt Ltd/LLP) with us and get **Udyam/MSME Certificate + GST Registration completely FREE**.</p>
+              </div>
+              <Link to="/contact?service=company&message=I%20want%20the%20Startup%20Launchpack%20combo%20(Company%20Registration%20%2B%20Free%20MSME%20%26%20GST)." className="btn btn-primary" style={{ justifyContent: 'center' }}>Claim Combo Deal →</Link>
+            </div>
+
+            {/* Offer 3 */}
+            <div className="offer-card reveal" style={{ background: 'white', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', transition: 'var(--transition)', boxShadow: 'var(--shadow-sm)' }}>
+              <div>
+                <div className="offer-icon" style={{ fontSize: '2.5rem', marginBottom: '1.25rem' }}>🧾</div>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '0.75rem' }}>GST Compliance Bundle</h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '1.5rem' }}>Start your compliance cycle stress-free. Get fresh GST registration + **3 months of monthly GSTR filings at 20% off**.</p>
+              </div>
+              <Link to="/contact?service=gst&message=I%20want%20to%20apply%20for%20the%20GST%20Compliance%20Bundle%20(3-Month%20Filing%20discount)." className="btn btn-primary" style={{ justifyContent: 'center' }}>Claim Combo Deal →</Link>
+            </div>
+
+            {/* Offer 4 */}
+            <div className="offer-card reveal" style={{ background: 'white', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', transition: 'var(--transition)', boxShadow: 'var(--shadow-sm)' }}>
+              <div>
+                <div className="offer-icon" style={{ fontSize: '2.5rem', marginBottom: '1.25rem' }}>👥</div>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '0.75rem' }}>Refer & Save 15%</h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '1.5rem' }}>Refer a business owner for tax filings, auditing, or GEM bidding, and get **15% off** your next personal Income Tax filing.</p>
+              </div>
+              <Link to="/contact?service=other&message=I%20want%20to%20refer%20a%20friend%20for%20services%20and%20claim%20my%2015%25%20discount." className="btn btn-primary" style={{ justifyContent: 'center' }}>Refer a Friend →</Link>
+            </div>
+
+            {/* Offer 5 */}
+            <div className="offer-card reveal" style={{ background: 'white', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', transition: 'var(--transition)', boxShadow: 'var(--shadow-sm)' }}>
+              <div>
+                <div className="offer-icon" style={{ fontSize: '2.5rem', marginBottom: '1.25rem' }}>🛡️</div>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.45rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '0.75rem' }}>Family Security Bundle</h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '1.5rem' }}>Buy Health and Term Insurance together and unlock a **FREE 1-Year Wealth & Investment Advisory plan** for your family.</p>
+              </div>
+              <Link to="/contact?service=other&message=I%20want%20to%20know%20more%20about%20the%20Family%20Protection%20Bundle%20(Health%20%2B%20Term%20%2B%20Free%20Investment%20Advisory)." className="btn btn-primary" style={{ justifyContent: 'center' }}>Secure My Family →</Link>
+            </div>
           </div>
         </div>
       </section>
@@ -366,7 +490,7 @@ export default function Home() {
           <div className="testimonials-grid">
             <div className="testimonial-card reveal">
               <div className="stars" aria-label="5 stars">★★★★★</div>
-              <p>"SureVriksha got our family the right health plan. When Papa was hospitalized, the cashless claim was cleared in hours. Yashraj personally guided us through every step. Exceptional service!"</p>
+              <p>"SureVriksha got our family the right health plan. When Papa was hospitalized, the cashless claim was cleared in hours. Their team personally guided us through every step. Exceptional service!"</p>
               <div className="t-author">
                 <div className="t-avatar" style={{ background: '#0F9D58' }}>RK</div>
                 <div><span className="t-name">Rajesh Kumar</span><span className="t-location">Bhubaneswar, Odisha</span></div>

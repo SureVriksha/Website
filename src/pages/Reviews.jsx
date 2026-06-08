@@ -70,7 +70,7 @@ export default function Reviews() {
     {
       stars: "★★★★★",
       src: "Google",
-      text: "Yashraj answers calls even on weekends! When my mother needed emergency hospitalization, he coordinated with the insurer directly. That personal touch is incredibly rare today.",
+      text: "SureVriksha's team answers calls even on weekends! When my mother needed emergency hospitalization, they coordinated with the insurer directly. That personal touch is incredibly rare today.",
       author: "Ravi Shankar",
       loc: "Chennai • Health Insurance",
       bg: "#388e3c"

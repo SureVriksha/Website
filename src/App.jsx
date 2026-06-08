@@ -39,13 +39,13 @@ function ScrollToTopAndAnimations() {
           setTimeout(() => entry.target.classList.add('visible'), delay);
           revealObs.unobserve(entry.target);
         });
-      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      }, { threshold: 0.05, rootMargin: '0px 0px 180px 0px' });
 
       revealEls.forEach((el) => {
         if (el.classList.contains('visible')) return;
 
         const siblings = Array.from(el.parentElement.querySelectorAll('.reveal'));
-        const delay = siblings.indexOf(el) * 90;
+        const delay = siblings.indexOf(el) * 60;
         el.setAttribute('data-delay', delay.toString());
         revealObs.observe(el);
       });
