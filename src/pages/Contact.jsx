@@ -16,9 +16,12 @@ export default function Contact() {
 
   useEffect(() => {
     const serviceParam = searchParams.get('service');
-    if (serviceParam) {
-      setFormData(prev => ({ ...prev, service: serviceParam }));
-    }
+    const messageParam = searchParams.get('message');
+    setFormData(prev => ({
+      ...prev,
+      ...(serviceParam ? { service: serviceParam } : {}),
+      ...(messageParam ? { message: messageParam } : {})
+    }));
   }, [searchParams]);
 
   const handleChange = (e) => {
@@ -159,6 +162,13 @@ export default function Contact() {
                     <option value="itr">ITR Filing & Tax Audit</option>
                     <option value="company">Company Registration</option>
                     <option value="msme">MSME / Udyam Registration</option>
+                    <option value="gem">GEM & Tender Services</option>
+                    <option value="oem">OEM Vendor Registration</option>
+                    <option value="stock-audit">Stock Audit & Valuation</option>
+                    <option value="certificates">Govt Certificates (Caste/Income/Residence)</option>
+                    <option value="rto">RTO Services (Driving License/RC)</option>
+                    <option value="passport-visa">Passport & VISA Services</option>
+                    <option value="student-desk">Student Desk (Scholarships/Exams)</option>
                     <option value="licenses">Business Licenses (Trademark, FSSAI, etc.)</option>
                     <option value="other">Other / General Query</option>
                   </select>

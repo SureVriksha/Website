@@ -50,9 +50,19 @@ function ScrollToTopAndAnimations() {
         el.setAttribute('data-observed', 'true');
 
         const siblings = Array.from(el.parentElement.querySelectorAll('.reveal'));
-        const delay = siblings.indexOf(el) * 60;
+        const delay = siblings.indexOf(el) * 40; // Reduced delay from 60ms to 40ms for snappier loads
         el.setAttribute('data-delay', delay.toString());
-        revealObs.observe(el);
+
+        const rect = el.getBoundingClientRect();
+        // Check if element is in the viewport or close above the fold
+        const isInViewport = rect.top < window.innerHeight + 100 && rect.bottom > -100;
+
+        if (isInViewport) {
+          // If already in or near viewport, reveal immediately with delay
+          setTimeout(() => el.classList.add('visible'), delay);
+        } else {
+          revealObs.observe(el);
+        }
       });
     };
 

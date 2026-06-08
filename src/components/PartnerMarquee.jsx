@@ -110,6 +110,73 @@ export default function PartnerMarquee() {
           <text x="42" y="32" fill="#2d3748" font-weight="700" font-family="sans-serif" font-size="10">Life</text>
         </svg>
       )
+    },
+    {
+      title: "Reliance General",
+      svg: (
+        <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="8" width="24" height="24" rx="12" fill="#005ea6"/>
+          <path d="M10 20l3-5 5 8h4" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+          <text x="36" y="21" fill="#005ea6" font-weight="800" font-family="sans-serif" font-size="11">RELIANCE</text>
+          <text x="36" y="31" fill="#2d3748" font-weight="600" font-family="sans-serif" font-size="9">General Insurance</text>
+        </svg>
+      )
+    },
+    {
+      title: "National Insurance",
+      svg: (
+        <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="14" fill="#0f766e"/>
+          <path d="M12 20h16M20 12v16" stroke="#ffffff" stroke-width="2"/>
+          <text x="40" y="20" fill="#0f766e" font-weight="800" font-family="sans-serif" font-size="13">NATIONAL</text>
+          <text x="40" y="31" fill="#2d3748" font-weight="600" font-family="sans-serif" font-size="9">Insurance</text>
+        </svg>
+      )
+    },
+    {
+      title: "New India Assurance",
+      svg: (
+        <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="14" fill="#1e3a8a"/>
+          <path d="M12 20s3-6 8-6 8 6 8 6-3 6-8 6-8-6-8-6z" stroke="#ffffff" stroke-width="2"/>
+          <circle cx="20" cy="20" r="3" fill="#ffcc00"/>
+          <text x="40" y="20" fill="#1e3a8a" font-weight="800" font-family="sans-serif" font-size="12">NEW INDIA</text>
+          <text x="40" y="31" fill="#2d3748" font-weight="600" font-family="sans-serif" font-size="9">Assurance</text>
+        </svg>
+      )
+    },
+    {
+      title: "Max Life",
+      svg: (
+        <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="8" width="24" height="24" rx="4" fill="#111827"/>
+          <path d="M12 14l4 6 4-6M12 26h8" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+          <text x="38" y="21" fill="#111827" font-weight="800" font-family="sans-serif" font-size="14">MAX</text>
+          <text x="38" y="32" fill="#ef4444" font-weight="800" font-family="sans-serif" font-size="11">LIFE</text>
+        </svg>
+      )
+    },
+    {
+      title: "Aditya Birla",
+      svg: (
+        <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 6l12 20H8L20 6z" fill="#991b1b"/>
+          <circle cx="20" cy="18" r="4" fill="#ffcc00"/>
+          <text x="38" y="20" fill="#991b1b" font-weight="800" font-family="sans-serif" font-size="12">ADITYA BIRLA</text>
+          <text x="38" y="31" fill="#2d3748" font-weight="600" font-family="sans-serif" font-size="9" letter-spacing="1">CAPITAL</text>
+        </svg>
+      )
+    },
+    {
+      title: "Kotak Life",
+      svg: (
+        <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="8" width="24" height="24" rx="4" fill="#dd2c00"/>
+          <text x="8" y="25" fill="#ffffff" font-weight="900" font-family="sans-serif" font-size="14">k</text>
+          <text x="36" y="21" fill="#dd2c00" font-weight="800" font-family="sans-serif" font-size="14">KOTAK</text>
+          <text x="36" y="32" fill="#2d3748" font-weight="600" font-family="sans-serif" font-size="10">Life Insurance</text>
+        </svg>
+      )
     }
   ];
 
