@@ -1135,11 +1135,29 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 .service-detail-section.bg-alt { background: var(--off-white) !important; }
 .service-detail-section:nth-child(even) { background: transparent; } /* override old default */
 
-/* ==============================
-   REVEAL ANIMATIONS
-   ============================== */
-.reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+@keyframes softFadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  animation: softFadeInUp 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Below-the-fold elements get hidden by JS and wait for scroll */
+.reveal.reveal-init {
+  animation: none;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.reveal-init.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* ==============================
    RESPONSIVE

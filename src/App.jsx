@@ -37,49 +37,47 @@ function ScrollToTopAndAnimations() {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         const delay = parseInt(entry.target.getAttribute('data-delay') || '0', 10);
-        setTimeout(() => entry.target.classList.add('visible'), delay);
+        setTimeout(() => {
+          if (entry.target) entry.target.classList.add('visible');
+        }, delay);
         revealObs.unobserve(entry.target);
       });
     }, { threshold: 0.05, rootMargin: '0px 0px 180px 0px' });
 
-    const observeNewElements = () => {
+    const setupRevealElements = () => {
       const revealEls = document.querySelectorAll('.reveal');
       revealEls.forEach((el) => {
+        // If already showing or animated, skip
         if (el.classList.contains('visible')) return;
 
-        const siblings = Array.from(el.parentElement.querySelectorAll('.reveal'));
-        const delay = siblings.indexOf(el) * 35; // Snappy 35ms delay
-        el.setAttribute('data-delay', delay.toString());
-
         const rect = el.getBoundingClientRect();
-        // Check if element is in the viewport or close above the fold
-        const isInViewport = rect.top < window.innerHeight + 120 && rect.bottom > -120;
+        // Check if element is below the fold (not visible initially)
+        const isBelowFold = rect.top > window.innerHeight + 100;
 
-        if (isInViewport) {
-          if (el.getAttribute('data-animating') === 'true') return;
-          el.setAttribute('data-animating', 'true');
-          setTimeout(() => {
-            if (el) {
-              el.classList.add('visible');
-              el.removeAttribute('data-animating');
-            }
-          }, delay);
-        } else {
-          if (el.getAttribute('data-observed') === 'true') return;
-          el.setAttribute('data-observed', 'true');
+        if (isBelowFold) {
+          if (el.classList.contains('reveal-init')) return;
+          
+          // Set cascading delay
+          const siblings = Array.from(el.parentElement.querySelectorAll('.reveal'));
+          const delay = siblings.indexOf(el) * 35; // Snappy 35ms delay
+          el.setAttribute('data-delay', delay.toString());
+
+          // Hide and observe
+          el.classList.add('reveal-init');
           revealObs.observe(el);
         }
+        // If above the fold, we do nothing. The CSS keyframe animation handles its fade-in automatically!
       });
     };
 
     // Run initial check after DOM has had a moment to settle
     const timer = setTimeout(() => {
-      observeNewElements();
+      setupRevealElements();
     }, 150);
 
     // Watch for dynamic additions to the DOM (like tab switcher panels mounting new cards)
     const mutationObs = new MutationObserver(() => {
-      observeNewElements();
+      setupRevealElements();
     });
 
     mutationObs.observe(document.body, { childList: true, subtree: true });
