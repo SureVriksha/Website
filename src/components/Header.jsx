@@ -32,9 +32,9 @@ export default function Header() {
         <nav className="nav container">
           <Link to="/" className="logo" aria-label="SureVriksha Home">
             <img src="/images/logo.png" alt="SureVriksha Logo" className="logo-img" width="52" height="52" />
-            <div class="logo-text-wrap">
-              <span class="logo-name">SureVriksha</span>
-              <span class="logo-sub">Financial Advisory</span>
+            <div className="logo-text-wrap">
+              <span className="logo-name">SureVriksha</span>
+              <span className="logo-sub">Financial Advisory</span>
             </div>
           </Link>
           <ul className="nav-links" role="list">

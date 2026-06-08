@@ -113,7 +113,7 @@ export default function Home() {
               </div>
               <div className="hero-float hf-1"><span className="float-icon">🏆</span>Top Advisor 2024</div>
               <div className="hero-float hf-2"><span className="float-icon">✅</span>Claim Settled in 3 Days</div>
-              <div className="hero-float hf-3"><span class="float-icon">⚡</span>Same-Day Support</div>
+              <div className="hero-float hf-3"><span className="float-icon">⚡</span>Same-Day Support</div>
             </div>
           </div>
         </div>
@@ -330,9 +330,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="wbc-grid">
-                  <div className="wbc-stat"><div className="wbc-num">2K+</div><div class="wbc-lbl">Families Protected</div></div>
-                  <div className="wbc-stat"><div className="wbc-num">10+</div><div class="wbc-lbl">Years Trusted</div></div>
-                  <div className="wbc-stat"><div className="wbc-num">30+</div><div class="wbc-lbl">Insurers</div></div>
+                  <div className="wbc-stat"><div className="wbc-num">2K+</div><div className="wbc-lbl">Families Protected</div></div>
+                  <div className="wbc-stat"><div className="wbc-num">10+</div><div className="wbc-lbl">Years Trusted</div></div>
+                  <div className="wbc-stat"><div className="wbc-num">30+</div><div className="wbc-lbl">Insurers</div></div>
                 </div>
                 <div className="wbc-progress">
                   <div className="wbc-progress-label"><span>Client Satisfaction</span><span>98%</span></div>

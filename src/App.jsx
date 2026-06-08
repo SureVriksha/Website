@@ -1,122 +1,82 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import WhatsAppFloat from './components/WhatsAppFloat';
+import Home from './pages/Home';
+import Services from './pages/Services';
+import About from './pages/About';
+import Reviews from './pages/Reviews';
+import Contact from './pages/Contact';
+import Privacy from './pages/Privacy';
 
-function App() {
-  const [count, setCount] = useState(0)
+function ScrollToTopAndAnimations() {
+  const location = useLocation();
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+  useEffect(() => {
+    // 1. Handle scroll positioning or hashes
+    const hash = location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.scrollTo(0, 0);
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
 
-      <div className="ticks"></div>
+    // 2. Setup IntersectionObserver for reveal animations on mount/location change
+    const timer = setTimeout(() => {
+      const revealEls = document.querySelectorAll('.reveal');
+      const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const delay = parseInt(entry.target.getAttribute('data-delay') || '0', 10);
+          setTimeout(() => entry.target.classList.add('visible'), delay);
+          revealObs.unobserve(entry.target);
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      revealEls.forEach((el) => {
+        if (el.classList.contains('visible')) return;
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+        const siblings = Array.from(el.parentElement.querySelectorAll('.reveal'));
+        const delay = siblings.indexOf(el) * 90;
+        el.setAttribute('data-delay', delay.toString());
+        revealObs.observe(el);
+      });
+
+      return () => {
+        revealObs.disconnect();
+      };
+    }, 150);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname, location.search, location.hash]);
+
+  return null;
 }
 
-export default App
+export default function App() {
+  return (
+    <>
+      <ScrollToTopAndAnimations />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/reviews" element={<Reviews />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+      <Footer />
+      <WhatsAppFloat />
+    </>
+  );
+}

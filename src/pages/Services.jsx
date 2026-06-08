@@ -76,11 +76,11 @@ export default function Services() {
                   <p className="reveal">Medical emergencies are unpredictable. But financial ruin from healthcare costs doesn't have to be. We help you choose the right health insurance — cashless, comprehensive, and genuinely protective.</p>
                   <div className="sd-benefits reveal">
                     <div className="sd-benefit"><div className="sd-check">✓</div><span>Cashless treatment at 10,000+ network hospitals</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Pre & post-hospitalization expenses covered</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>No-claim bonus up to 50% of sum insured</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Critical illness and maternity cover available</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Annual free health check-ups included</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Tax deduction under Section 80D</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Pre & post-hospitalization expenses covered</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>No-claim bonus up to 50% of sum insured</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Critical illness and maternity cover available</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Annual free health check-ups included</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Tax deduction under Section 80D</span></div>
                   </div>
                   <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Everyone — individuals, families, senior citizens, and the self-employed. Especially those without employer-provided group health cover.</p></div>
                   <Link to="/contact?service=health" className="btn btn-gold reveal">Get Health Insurance Quote →</Link>
@@ -111,11 +111,11 @@ export default function Services() {
                   <p className="reveal">If something were to happen to you, would your family be able to maintain their lifestyle? Term insurance ensures the answer is always yes — ₹1 Crore cover for as little as ₹500/month.</p>
                   <div className="sd-benefits reveal">
                     <div className="sd-benefit"><div className="sd-check">✓</div><span>Cover up to ₹10 Crore at minimal premiums</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Tax-free death benefit paid to nominees</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Return of premium option available</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Critical illness and accidental death riders</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Waiver of premium on permanent disability</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Tax benefit under Section 80C</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Tax-free death benefit paid to nominees</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Return of premium option available</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Critical illness and accidental death riders</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Waiver of premium on permanent disability</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Tax benefit under Section 80C</span></div>
                   </div>
                   <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Every earning individual with dependents — spouse, children, or parents. Also essential for home loan borrowers. Start young for the lowest premiums.</p></div>
                   <Link to="/contact?service=term" className="btn btn-gold reveal">Get Term Insurance Quote →</Link>
@@ -145,12 +145,12 @@ export default function Services() {
                   <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Drive With<br /><em style={{ color: 'var(--gold-dark)' }}>Total Confidence</em></h2>
                   <p className="reveal">An accident can happen in seconds. Make sure when it does, your vehicle, your finances, and third parties are fully protected — with the right comprehensive motor insurance plan.</p>
                   <div className="sd-benefits reveal">
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Comprehensive cover: own damage + third party</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Cashless repairs at 5,000+ garages across India</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Zero depreciation add-on for full value claims</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>24/7 roadside assistance and towing</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Engine protection and consumables cover</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>NCB (No Claim Bonus) protection add-on</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Comprehensive cover: own damage + third party</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Cashless repairs at 5,000+ garages across India</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Zero depreciation add-on for full value claims</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>24/7 roadside assistance and towing</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Engine protection and consumables cover</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>NCB (No Claim Bonus) protection add-on</span></div>
                   </div>
                   <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>All vehicle owners in India — third-party cover is legally mandatory. Comprehensive cover is strongly recommended for any vehicle under 10 years old.</p></div>
                   <Link to="/contact?service=motor" className="btn btn-gold reveal">Get Motor Insurance Quote →</Link>
@@ -180,12 +180,12 @@ export default function Services() {
                   <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Explore the World<br /><em style={{ color: 'var(--gold-dark)' }}>Worry-Free</em></h2>
                   <p className="reveal">From a medical emergency in Europe to a cancelled flight in Bangkok — travel insurance ensures that no unexpected event can derail your journey or drain your savings.</p>
                   <div className="sd-benefits reveal">
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Medical emergency coverage worldwide</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Trip cancellation and interruption protection</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Baggage loss and flight delay compensation</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Emergency evacuation and repatriation</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Passport and document loss cover</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Schengen visa compliant policies available</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Medical emergency coverage worldwide</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Trip cancellation and interruption protection</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Baggage loss and flight delay compensation</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Emergency evacuation and repatriation</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Passport and document loss cover</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Schengen visa compliant policies available</span></div>
                   </div>
                   <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>International travelers, students studying abroad, frequent business flyers, and families on vacation. Schengen visa applicants must have travel insurance.</p></div>
                   <Link to="/contact?service=travel" className="btn btn-gold reveal">Get Travel Insurance Quote →</Link>
@@ -215,12 +215,12 @@ export default function Services() {
                   <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Your Biggest Asset<br /><em style={{ color: 'var(--gold-dark)' }}>Deserves the Best Guard</em></h2>
                   <p className="reveal">Your home is more than bricks and mortar — it's your life's biggest investment. Protect it against natural disasters, fire, theft, and accidental damage with a comprehensive home insurance policy.</p>
                   <div className="sd-benefits reveal">
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Structure coverage: earthquake, flood, fire, cyclone</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Contents and valuables protection</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Burglary and theft cover</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Third-party liability for visitors</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Temporary rental accommodation during repairs</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Plans starting at just ₹2,500/year</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Structure coverage: earthquake, flood, fire, cyclone</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Contents and valuables protection</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Burglary and theft cover</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Third-party liability for visitors</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Temporary rental accommodation during repairs</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Plans starting at just ₹2,500/year</span></div>
                   </div>
                   <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Home owners, renters, landlords, and anyone in flood-prone, earthquake-prone, or coastal areas. Especially important if you have a home loan.</p></div>
                   <Link to="/contact?service=home" className="btn btn-gold reveal">Get Home Insurance Quote →</Link>
@@ -247,15 +247,15 @@ export default function Services() {
                 <div className="sd-content">
                   <div className="sd-eyebrow reveal">Commercial Insurance</div>
                   <div className="sd-icon reveal" style={{ background: 'linear-gradient(135deg,#e8eaf6,#c5cae9)' }}>🏢</div>
-                  <h2 class="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Protect Your Business<br /><em style={{ color: 'var(--gold-dark)' }}>Like You Protect Your Family</em></h2>
+                  <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Protect Your Business<br /><em style={{ color: 'var(--gold-dark)' }}>Like You Protect Your Family</em></h2>
                   <p className="reveal">Businesses face risks that personal policies can't cover. From fire to marine cargo to employee accidents — we provide complete commercial insurance tailored to your industry and scale.</p>
                   <div className="sd-benefits reveal">
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Fire insurance for shops, offices & factories</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Marine cargo for goods in domestic/international transit</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Workmen Compensation (WC) policy</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Public and product liability insurance</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Group health and accident cover for employees</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>D&O and professional indemnity for corporates</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Fire insurance for shops, offices & factories</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Marine cargo for goods in domestic/international transit</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Workmen Compensation (WC) policy</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Public and product liability insurance</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Group health and accident cover for employees</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>D&O and professional indemnity for corporates</span></div>
                   </div>
                   <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>SMEs, retailers, manufacturers, exporters, IT firms, construction companies, and any business with employees, physical assets, or goods in transit.</p></div>
                   <Link to="/contact?service=commercial" className="btn btn-gold reveal">Get Commercial Insurance Quote →</Link>
@@ -285,12 +285,12 @@ export default function Services() {
                   <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Make Your Money<br /><em style={{ color: 'var(--gold-dark)' }}>Work as Hard as You Do</em></h2>
                   <p className="reveal">Protection alone isn't enough — your money should grow too. Our certified advisors build tax-efficient investment portfolios aligned with your goals, whether that's retirement, education, or wealth creation.</p>
                   <div className="sd-benefits reveal">
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>ELSS mutual funds: tax saving + wealth growth</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>SIP planning for systematic, long-term wealth</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>PPF, NPS, and fixed income advisory</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Maximize tax savings under 80C, 80D, 80CCD</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Retirement planning and annuity products</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Child education and marriage corpus planning</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>ELSS mutual funds: tax saving + wealth growth</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>SIP planning for systematic, long-term wealth</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>PPF, NPS, and fixed income advisory</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Maximize tax savings under 80C, 80D, 80CCD</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Retirement planning and annuity products</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Child education and marriage corpus planning</span></div>
                   </div>
                   <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Salaried professionals, business owners, and HNIs. Start a ₹5,000/month SIP today — it can become ₹1 Crore in 20 years at 12% returns.</p></div>
                   <Link to="/contact?service=investment" className="btn btn-gold reveal">Start Investment Planning →</Link>
@@ -325,12 +325,12 @@ export default function Services() {
                   <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Simplify Your Business<br /><em style={{ color: 'var(--gold-dark)' }}>With Stress-Free GST</em></h2>
                   <p className="reveal">Tax compliance shouldn't distract you from growing your business. We handle everything from fresh GST registrations to month-on-month return filing (GSTR-1, GSTR-3B) with accurate input tax credit (ITC) reconciliation.</p>
                   <div className="sd-benefits reveal">
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Quick registration approval within 3-5 business days</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Seamless monthly & quarterly return filing (GSTR-1, GSTR-3B, GSTR-9)</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Export support: Letter of Undertaking (LUT) filing</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Precise ITC reconciliation to save cash leakages</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Expert handling of GST audits, amendments, and cancellations</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Ongoing advice on GST rate revisions and compliance norms</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Quick registration approval within 3-5 business days</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Seamless monthly & quarterly return filing (GSTR-1, GSTR-3B, GSTR-9)</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Export support: Letter of Undertaking (LUT) filing</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Precise ITC reconciliation to save cash leakages</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Expert handling of GST audits, amendments, and cancellations</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Ongoing advice on GST rate revisions and compliance norms</span></div>
                   </div>
                   <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Any business owner with turnover exceeding the limit (₹20L/₹40L for goods/services) or doing inter-state sales.</p></div>
                   <Link to="/contact?service=gst" className="btn btn-gold reveal">Get GST Support →</Link>
@@ -360,12 +360,12 @@ export default function Services() {
                   <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Maximize Your Tax Savings<br /><em style={{ color: 'var(--gold-dark)' }}>File With Experts</em></h2>
                   <p className="reveal">Don't just file your returns — optimize your taxes. Our chartered advisors review your income from salary, business, capital gains, and house property to minimize your tax liability legally and secure maximum refunds.</p>
                   <div className="sd-benefits reveal">
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Accurate filing of ITR-1, ITR-2, ITR-3, and ITR-4 forms</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Double-checked computations under Old vs New Tax Regimes</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Capital gains computation from stock market, mutual funds & property</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Section 80C, 80D, 80G, and 80CCD tax deduction reviews</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Professional representation in case of tax notices or scrutiny</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Advanced tax planning and annual tax audits for business owners</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Accurate filing of ITR-1, ITR-2, ITR-3, and ITR-4 forms</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Double-checked computations under Old vs New Tax Regimes</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Capital gains computation from stock market, mutual funds & property</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Section 80C, 80D, 80G, and 80CCD tax deduction reviews</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Professional representation in case of tax notices or scrutiny</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Advanced tax planning and annual tax audits for business owners</span></div>
                   </div>
                   <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Salaried professionals, freelancers, stock market traders, NRI taxpayers, and business owners who want error-free tax filing.</p></div>
                   <Link to="/contact?service=itr" className="btn btn-gold reveal">Start ITR Filing →</Link>
@@ -395,12 +395,12 @@ export default function Services() {
                   <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Turn Your Vision Into Reality<br /><em style={{ color: 'var(--gold-dark)' }}>Incorporate Your Company</em></h2>
                   <p className="reveal">Give your business the credibility of a registered legal structure. From selecting the right entity type to getting your Incorporation Certificate, PAN, TAN, and DIN — we manage the entire Ministry of Corporate Affairs (MCA) process.</p>
                   <div className="sd-benefits reveal">
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Complete company setup in 7-10 business days</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Incorporation Certificate (COI), PAN, TAN, and DIN included</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Setup Private Limited, LLP, One Person Company (OPC), or Partnerships</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Draft customized MoA, AoA, and LLP Agreements</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Free assistance in opening corporate bank accounts</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Complimentary MSME registration certificate with company setup</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Complete company setup in 7-10 business days</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Incorporation Certificate (COI), PAN, TAN, and DIN included</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Setup Private Limited, LLP, One Person Company (OPC), or Partnerships</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Draft customized MoA, AoA, and LLP Agreements</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Free assistance in opening corporate bank accounts</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Complimentary MSME registration certificate with company setup</span></div>
                   </div>
                   <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Entrepreneurs, startup founders, partnership groups, and sole proprietors looking to raise capital, limit personal liability, or scale.</p></div>
                   <Link to="/contact?service=company" className="btn btn-gold reveal">Register Company Now →</Link>
@@ -430,12 +430,12 @@ export default function Services() {
                   <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Unlock Government Subsidies<br /><em style={{ color: 'var(--gold-dark)' }}>Get MSME Certified</em></h2>
                   <p className="reveal">The Government of India provides extensive benefits, lower interest rates, and financial protections to MSMEs. We help you obtain your Udyam Registration certificate and advise you on claiming government schemes.</p>
                   <div className="sd-benefits reveal">
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Instant Udyam Registration certificate generation</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Collateral-free business loans under CGTMSE scheme</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Lower interest rates on bank loans (up to 1.5% concession)</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Protection against delayed payments from corporate buyers (45-day rule)</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>50% discount on Trademark and Patent registration government fees</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Concessions on electricity bills and government tender applications</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Instant Udyam Registration certificate generation</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Collateral-free business loans under CGTMSE scheme</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Lower interest rates on bank loans (up to 1.5% concession)</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Protection against delayed payments from corporate buyers (45-day rule)</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>50% discount on Trademark and Patent registration government fees</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Concessions on electricity bills and government tender applications</span></div>
                   </div>
                   <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Micro, small, and medium businesses, retailers, wholesalers, manufacturers, service providers, and startups looking to avail concessions.</p></div>
                   <Link to="/contact?service=msme" className="btn btn-gold reveal">Register MSME / Udyam →</Link>
@@ -465,12 +465,12 @@ export default function Services() {
                   <h2 className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 700, color: 'var(--green-deeper)', marginBottom: '1rem' }}>Secure Your Business Assets<br /><em style={{ color: 'var(--gold-dark)' }}>With Essential Licenses</em></h2>
                   <p className="reveal">Protect your brand name, comply with food safety standards, or start trading internationally. We handle all mandatory business registrations and intellectual property filings under one roof.</p>
                   <div className="sd-benefits reveal">
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Trademark Registration: Protect your brand name & logo (™ logo)</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>FSSAI Food License: Mandated safety registrations for food businesses</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Import Export Code (IEC): Required for global trading operations</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>ISO Certification: Establish international quality standards</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>Shop & Establishment License (Gumasta registration)</span></div>
-                    <div className="sd-benefit"><div class="sd-check">✓</div><span>TAN registration and Professional Tax (PT) enrollment</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Trademark Registration: Protect your brand name & logo (™ logo)</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>FSSAI Food License: Mandated safety registrations for food businesses</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Import Export Code (IEC): Required for global trading operations</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>ISO Certification: Establish international quality standards</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>Shop & Establishment License (Gumasta registration)</span></div>
+                    <div className="sd-benefit"><div className="sd-check">✓</div><span>TAN registration and Professional Tax (PT) enrollment</span></div>
                   </div>
                   <div className="sd-who reveal"><h4>💡 Who Should Buy?</h4><p>Businesses looking to secure their brand identity, restaurants, food manufacturers, traders, exporters, and employers with 10+ workers.</p></div>
                   <Link to="/contact?service=licenses" className="btn btn-gold reveal">Apply for Business License →</Link>
