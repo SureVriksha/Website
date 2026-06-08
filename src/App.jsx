@@ -13,11 +13,11 @@ import Privacy from './pages/Privacy';
 function ScrollToTopAndAnimations() {
   const location = useLocation();
 
+  // 1. Handle scroll positioning or hashes on location changes
   useEffect(() => {
-    // 1. Handle scroll positioning or hashes
     const hash = location.hash;
     if (hash) {
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         const el = document.querySelector(hash);
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
@@ -25,38 +25,55 @@ function ScrollToTopAndAnimations() {
           window.scrollTo(0, 0);
         }
       }, 100);
+      return () => clearTimeout(timer);
     } else {
       window.scrollTo(0, 0);
     }
+  }, [location.pathname, location.search, location.hash]);
 
-    // 2. Setup IntersectionObserver for reveal animations on mount/location change
-    const timer = setTimeout(() => {
+  // 2. Setup IntersectionObserver and MutationObserver for reveal animations
+  useEffect(() => {
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const delay = parseInt(entry.target.getAttribute('data-delay') || '0', 10);
+        setTimeout(() => entry.target.classList.add('visible'), delay);
+        revealObs.unobserve(entry.target);
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px 180px 0px' });
+
+    const observeNewElements = () => {
       const revealEls = document.querySelectorAll('.reveal');
-      const revealObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          const delay = parseInt(entry.target.getAttribute('data-delay') || '0', 10);
-          setTimeout(() => entry.target.classList.add('visible'), delay);
-          revealObs.unobserve(entry.target);
-        });
-      }, { threshold: 0.05, rootMargin: '0px 0px 180px 0px' });
-
       revealEls.forEach((el) => {
         if (el.classList.contains('visible')) return;
+        if (el.getAttribute('data-observed') === 'true') return;
+        el.setAttribute('data-observed', 'true');
 
         const siblings = Array.from(el.parentElement.querySelectorAll('.reveal'));
         const delay = siblings.indexOf(el) * 60;
         el.setAttribute('data-delay', delay.toString());
         revealObs.observe(el);
       });
+    };
 
-      return () => {
-        revealObs.disconnect();
-      };
+    // Run initial check after DOM has had a moment to settle
+    const timer = setTimeout(() => {
+      observeNewElements();
     }, 150);
 
-    return () => clearTimeout(timer);
-  }, [location.pathname, location.search, location.hash]);
+    // Watch for dynamic additions to the DOM (like tab switcher panels mounting new cards)
+    const mutationObs = new MutationObserver(() => {
+      observeNewElements();
+    });
+
+    mutationObs.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      clearTimeout(timer);
+      revealObs.disconnect();
+      mutationObs.disconnect();
+    };
+  }, [location.pathname]);
 
   return null;
 }
