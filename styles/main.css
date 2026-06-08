@@ -1015,6 +1015,127 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 .privacy-section li { margin-bottom: 0.4rem; }
 
 /* ==============================
+   TABS AND SWITCHERS
+   ============================== */
+.tab-container {
+  margin: 0 auto 3rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+.tab-buttons {
+  display: inline-flex;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  padding: 0.35rem;
+  border-radius: 50px;
+  box-shadow: var(--shadow-sm);
+}
+.tab-btn {
+  padding: 0.75rem 2.25rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+.tab-btn:hover {
+  color: var(--green-dark);
+}
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+  color: white;
+  box-shadow: 0 4px 16px rgba(15,157,88,0.25);
+}
+.tab-panel {
+  display: none;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.tab-panel.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==============================
+   PARTNERS MARQUEE
+   ============================== */
+.partners-section {
+  padding: 3rem 0;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.partners-section .section-tag {
+  text-align: center;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 35s linear infinite;
+  gap: 3.5rem;
+  align-items: center;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+.partner-logo {
+  height: 44px;
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.45;
+  transition: var(--transition);
+  filter: grayscale(1);
+}
+.partner-logo:hover {
+  opacity: 1;
+  filter: grayscale(0);
+  transform: scale(1.08);
+}
+.partner-logo svg {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 1.75rem)); }
+}
+
+/* ==============================
+   ADDITIONAL UTILITIES
+   ============================== */
+.badge-blue { background: linear-gradient(135deg, #1e3a8a, #3b82f6) !important; }
+.badge-purple { background: linear-gradient(135deg, #4c1d95, #8b5cf6) !important; }
+.badge-teal { background: linear-gradient(135deg, #115e59, #14b8a6) !important; }
+.badge-orange { background: linear-gradient(135deg, #7c2d12, #f97316) !important; }
+.badge-violet { background: linear-gradient(135deg, #6d28d9, #c084fc) !important; }
+
+.service-detail-section.bg-alt { background: var(--off-white) !important; }
+.service-detail-section:nth-child(even) { background: transparent; } /* override old default */
+
+/* ==============================
    REVEAL ANIMATIONS
    ============================== */
 .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1); }

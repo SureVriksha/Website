@@ -144,3 +144,68 @@ document.querySelectorAll('.nav-link').forEach(a => {
   const href = a.getAttribute('href');
   a.classList.toggle('active', href === page || (page === '' && href === 'index.html'));
 });
+
+// ---- Service Tab Switching ----
+const tabButtons = document.querySelectorAll('.tab-btn');
+const tabPanels = document.querySelectorAll('.tab-panel');
+
+function switchTab(targetTabId) {
+  tabButtons.forEach(btn => {
+    const active = btn.dataset.tab === targetTabId;
+    btn.classList.toggle('active', active);
+  });
+  tabPanels.forEach(panel => {
+    const active = panel.id === targetTabId;
+    panel.classList.toggle('active', active);
+    
+    // Trigger reveal animations inside the active panel
+    if (active) {
+      panel.querySelectorAll('.reveal').forEach(el => {
+        el.classList.remove('visible'); // Reset first so intersection observer runs again
+        if (typeof revealObs !== 'undefined') {
+          revealObs.observe(el);
+        }
+      });
+    }
+  });
+}
+
+if (tabButtons.length > 0) {
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      switchTab(btn.dataset.tab);
+    });
+  });
+
+  // Check URL parameters or hash on load
+  const urlParams = new URLSearchParams(window.location.search);
+  const tabParam = urlParams.get('tab');
+  const hash = window.location.hash;
+  const corporateHashes = ['#gst', '#itr', '#company', '#msme', '#licenses'];
+
+  if (tabParam === 'tax' || corporateHashes.includes(hash)) {
+    switchTab('tax-services');
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+    }
+  } else {
+    switchTab('insurance-services');
+  }
+
+  window.addEventListener('hashchange', () => {
+    const hash = window.location.hash;
+    const corporateHashes = ['#gst', '#itr', '#company', '#msme', '#licenses'];
+    if (corporateHashes.includes(hash)) {
+      switchTab('tax-services');
+      const el = document.querySelector(hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    } else if (hash && hash !== '#') {
+      switchTab('insurance-services');
+      const el = document.querySelector(hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+}
