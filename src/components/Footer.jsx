@@ -71,7 +71,7 @@ export default function Footer() {
             <div className="footer-contact-item">
               <div className="fci-icon">✉️</div>
               <div className="fci-text">
-                <a href="mailto:info@surevriksha.com">info@surevriksha.com</a>
+                <a href="mailto:surevriksha@gmail.com">surevriksha@gmail.com</a>
               </div>
             </div>
             <div className="footer-contact-item">
