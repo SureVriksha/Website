@@ -1,14 +1,43 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
-import Home from './pages/Home';
-import Services from './pages/Services';
-import About from './pages/About';
-import Reviews from './pages/Reviews';
-import Contact from './pages/Contact';
-import Privacy from './pages/Privacy';
+
+// Lazy load pages to split bundle and speed up mobile load times
+const Home = lazy(() => import('./pages/Home'));
+const Services = lazy(() => import('./pages/Services'));
+const About = lazy(() => import('./pages/About'));
+const Reviews = lazy(() => import('./pages/Reviews'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Privacy = lazy(() => import('./pages/Privacy'));
+
+function PageLoader() {
+  return (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minHeight: '60vh',
+      width: '100%'
+    }}>
+      <div className="spinner" style={{
+        width: '40px',
+        height: '40px',
+        border: '3px solid rgba(0, 77, 64, 0.1)',
+        borderTop: '3px solid var(--green-base, #004d40)',
+        borderRadius: '50%',
+        animation: 'spin 1s linear infinite'
+      }} />
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      `}} />
+    </div>
+  );
+}
 
 function ScrollToTopAndAnimations() {
   const location = useLocation();
@@ -125,15 +154,17 @@ export default function App() {
     <>
       <ScrollToTopAndAnimations />
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/reviews" element={<Reviews />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="*" element={<Home />} />
-      </Routes>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </Suspense>
       <Footer />
       <WhatsAppFloat />
     </>
