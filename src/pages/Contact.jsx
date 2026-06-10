@@ -214,7 +214,13 @@ export default function Contact() {
               <div className="cis-card reveal"><div className="cis-header"><div className="cis-icon">💬</div><h3>WhatsApp</h3></div><a href="https://wa.me/919583425025?text=Hello%20SureVriksha!%20I%20need%20financial%20advice." target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp" style={{ marginTop: '0.5rem', fontSize: '0.85rem', padding: '0.6rem 1.25rem' }}>Chat on WhatsApp →</a></div>
               <div className="cis-card reveal"><div className="cis-header"><div className="cis-icon">✉️</div><h3>Email Us</h3></div><p><a href="mailto:surevriksha@gmail.com">surevriksha@gmail.com</a></p></div>
               <div className="cis-card reveal" style={{ background: 'linear-gradient(160deg,var(--green-deeper),var(--green-dark))', color: 'white', border: 'none' }}><div style={{ textAlign: 'center', padding: '0.5rem 0' }}><div style={{ fontSize: '2.5rem', marginBottom: '0.875rem' }}>🎁</div><h3 style={{ color: 'white', fontSize: '1.1rem', marginBottom: '0.5rem' }}>Free Consultation</h3><p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.75)', marginBottom: '1.25rem' }}>No fees. No pressure. Just expert guidance.</p><a href="tel:+919583425025" className="btn btn-gold" style={{ width: '100%', justifyContent: 'center' }}>📞 Call Now — It's Free</a></div></div>
-              <div className="map-box reveal"><span className="map-icon">🗺️</span><strong>Pan India Advisory Services</strong><p>We serve clients across all states in India</p><a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-gold" style={{ marginTop: '0.5rem', fontSize: '0.85rem' }}>Open Google Maps →</a></div>
+              <div className="cis-card reveal"><div className="cis-header"><div className="cis-icon">📍</div><h3>Head Office Address</h3></div><p>Kalinga Vihar, Bhubaneswar, Odisha - 751019</p></div>
+              <div className="map-box reveal">
+                <span className="map-icon">🌐</span>
+                <strong>Pan India & Global NRI Advisory</strong>
+                <p style={{ fontSize: '0.82rem', margin: '0.25rem 0' }}>Serving clients across all Indian states and international NRI clients globally.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Kalinga+Vihar,+Bhubaneswar" target="_blank" rel="noopener noreferrer" className="btn btn-outline-gold" style={{ marginTop: '0.75rem', fontSize: '0.85rem' }}>Open Google Maps →</a>
+              </div>
             </div>
           </div>
         </div>

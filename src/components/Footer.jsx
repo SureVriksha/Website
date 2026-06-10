@@ -82,7 +82,7 @@ export default function Footer() {
             </div>
             <div className="footer-contact-item">
               <div className="fci-icon">📍</div>
-              <div className="fci-text">Pan India Advisory Services</div>
+              <div className="fci-text">Kalinga Vihar, Bhubaneswar, 751019 (Head Office)<br /><span style={{ fontSize: '0.78rem', opacity: 0.8 }}>Serving clients Pan-India & Globally (NRI Desk)</span></div>
             </div>
           </div>
         </div>

@@ -544,6 +544,16 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* SEO Info Section */}
+      <section style={{ padding: '3rem 0', background: '#fafdf7', borderTop: '1px solid #d8e8dc' }}>
+        <div className="container">
+          <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+            <p><strong>SureVriksha Financial Advisory</strong> is headquartered at Kalinga Vihar, Bhubaneswar, Odisha - 751019.</p>
+            <p style={{ marginTop: '0.5rem' }}>We provide professional tax consultation, GST registration, GST return filing, ITR tax audit, company incorporation, and IRDAI-compliant insurance advisory (health, term, corporate, motor). While our head office is in Bhubaneswar, we proudly serve startup founders, businesses, families, and global NRI clients across Delhi, Mumbai, Bangalore, Pune, Kolkata, Hyderabad, Chennai, and other cities throughout India and globally.</p>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
