@@ -42,6 +42,88 @@ function PageLoader() {
 function ScrollToTopAndAnimations() {
   const location = useLocation();
 
+  // Track page views on route changes
+  useEffect(() => {
+    if (window.gtag) {
+      window.gtag('config', 'G-VBMR2BYPD6', {
+        page_path: location.pathname + location.search + location.hash
+      });
+    }
+  }, [location.pathname, location.search, location.hash]);
+
+  // Track all user clicks globally
+  useEffect(() => {
+    const handleGlobalClick = (event) => {
+      let target = event.target;
+      
+      // Traverse up to find the closest interactive element (button, link, input, etc.)
+      let interactiveElement = null;
+      let current = target;
+      for (let i = 0; i < 5; i++) {
+        if (!current) break;
+        const tagName = current.tagName?.toLowerCase();
+        const role = current.getAttribute('role');
+        
+        let hasPointerCursor = false;
+        try {
+          const cursorStyle = window.getComputedStyle(current).cursor;
+          hasPointerCursor = cursorStyle === 'pointer';
+        } catch (e) {
+          // Ignore style calculation errors on detached elements
+        }
+
+        if (
+          tagName === 'a' || 
+          tagName === 'button' || 
+          tagName === 'input' || 
+          tagName === 'select' || 
+          tagName === 'textarea' ||
+          role === 'button' || 
+          role === 'link' ||
+          hasPointerCursor ||
+          current.classList?.contains('btn') ||
+          current.classList?.contains('nav-link')
+        ) {
+          interactiveElement = current;
+          break;
+        }
+        current = current.parentElement;
+      }
+
+      // If no interactive element found, fallback to the clicked element itself
+      const elementToTrack = interactiveElement || target;
+      
+      const tag = elementToTrack.tagName?.toLowerCase() || '';
+      const text = (elementToTrack.innerText || elementToTrack.textContent || '').trim().substring(0, 60);
+      const id = elementToTrack.id || '';
+      const classes = Array.from(elementToTrack.classList || []).join(' ');
+      const href = elementToTrack.getAttribute('href') || elementToTrack.href || '';
+      const ariaLabel = elementToTrack.getAttribute('aria-label') || '';
+      const type = elementToTrack.getAttribute('type') || '';
+
+      // Create a descriptive label
+      const label = ariaLabel || text || id || classes || `unnamed_${tag}`;
+
+      if (window.gtag) {
+        window.gtag('event', 'user_click', {
+          element_tag: tag,
+          element_text: text,
+          element_id: id,
+          element_classes: classes,
+          element_label: label,
+          click_url: href,
+          input_type: type,
+          page_path: window.location.pathname + window.location.search
+        });
+      }
+    };
+
+    document.addEventListener('click', handleGlobalClick, true);
+    return () => {
+      document.removeEventListener('click', handleGlobalClick, true);
+    };
+  }, []);
+
   // 1. Handle scroll positioning or hashes on location changes
   useEffect(() => {
     const hash = location.hash;
